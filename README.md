@@ -1,6 +1,6 @@
 # portfolio-site
 my personal site in astro where i'll post my school projects and put my resume
-# [Your Name]'s CV Website
+# Mathias's CV Website
 
 Welcome to my personal CV and portfolio website, built with [Astro](https://astro.build/) and [Tailwind CSS](https://tailwindcss.com/).
 
