@@ -1,0 +1,14 @@
+{
+  "extends": "astro/tsconfigs/base",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
+  "compilerOptions": {
+    "verbatimModuleSyntax": true,
+    "strictNullChecks": true,
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      },
+    ]
+  }
+}
