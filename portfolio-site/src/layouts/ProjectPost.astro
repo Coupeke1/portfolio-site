@@ -1,0 +1,97 @@
+---
+import {Image} from 'astro:assets';
+import type {CollectionEntry} from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import "../styles/global.css";
+
+type Props = CollectionEntry<'projects'>['data'];
+const {
+    title,
+    shortDescription,
+    description,
+    pubDate,
+    updatedDate,
+    heroImage,
+    techStack,
+    repoUrl,
+    liveUrl,
+    role,
+    features,
+    year
+} = Astro.props;
+---
+
+<html lang="en">
+<head>
+    <BaseHead title={title} description={shortDescription ?? description}/>
+</head>
+<body class="bg-white text-gray-900">
+<Header/>
+<main class="w-full max-w-3xl mx-auto p-6">
+    <article>
+        {heroImage && (
+                <Image src={heroImage} width={1200} height={600} alt={title} class="rounded-xl shadow-md mb-6"/>
+        )}
+        <header class="mb-6">
+            <h1 class="text-3xl font-bold mb-2">{title} {year ? `• ${year}` : ''}</h1>
+            <p class="text-gray-600 mb-3">{shortDescription}</p>
+            <div class="text-sm text-gray-500">
+                <FormattedDate date={pubDate}/>
+                {updatedDate && <span class="italic ml-3">Last updated: <FormattedDate date={updatedDate}/></span>}
+            </div>
+        </header>
+
+        <section class="prose max-w-none mb-6">
+            <slot/>
+        </section>
+
+        {description && (
+                <section class="mb-6">
+                    <h3 class="text-xl font-semibold mb-2">Over het project</h3>
+                    <p>{description}</p>
+                </section>
+        )}
+
+        {techStack?.length && (
+                <section class="mb-6">
+                    <h3 class="text-xl font-semibold mb-2">Tech stack</h3>
+                    <ul class="flex flex-wrap gap-2">
+                        {techStack.map(t =>
+                                <li class="px-2 py-1 border rounded">{t}</li>)}
+                    </ul>
+                </section>
+        )}
+
+        {role && (
+                <section class="mb-6">
+                    <h3 class="text-xl font-semibold mb-2">Mijn rol</h3>
+                    <p>{role}</p>
+                </section>
+        )}
+
+        {features?.length && (
+                <section class="mb-6">
+                    <h3 class="text-xl font-semibold mb-2">Belangrijkste features</h3>
+                    <ul class="list-disc ml-6">
+                        {features.map(f =>
+                                <li>{f}</li>)}
+                    </ul>
+                </section>
+        )}
+
+        <section class="mb-8">
+            <h3 class="text-xl font-semibold mb-2">Links</h3>
+            <div class="flex gap-4">
+                {liveUrl && <a class="underline" href={liveUrl} target="_blank" rel="noopener">Live demo</a>}
+                {repoUrl && <a class="underline" href={repoUrl} target="_blank" rel="noopener">Repository</a>}
+            </div>
+        </section>
+
+    </article>
+</main>
+<Footer/>
+</body>
+</html>
