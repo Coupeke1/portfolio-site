@@ -1,52 +1,41 @@
 ---
 const today = new Date();
-import "../styles/global.css";
 ---
 
-<footer class="bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 text-gray-600 dark:text-gray-400 px-6 py-16">
+<footer class="px-4 py-6" style="background: var(--color-surface); color: var(--color-text);">
     <div class="max-w-3xl mx-auto">
-        <div class="inline-grid grid-cols-3 gap-10 justify-center text-sm text-center">
-            <!-- Kolommen hier -->
-            <div>
-                <h2 class="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">Over mij</h2>
-                <p>Ik ben Mathias Meeus, een full-stack developer met passie voor toegankelijke en schaalbare weboplossingen.</p>
-            </div>
-            <div>
-                <h2 class="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">Contact</h2>
-                <ul class="space-y-1">
-                    <li>📧 <a href="mailto:mathias@example.com" class="hover:underline">mathias@example.com</a></li>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm text-center items-start">
+            <div class="flex flex-col items-center sm:items-start">
+                <h2 class="text-sm font-semibold mb-1" style="color: var(--color-primary);">Contact</h2>
+                <ul class="space-y-1 text-xs" style="color: var(--color-text-muted);">
+                    <li>📧 <a href="mailto:mathias@example.com" class="hover:underline" style="color: var(--color-primary);">mathias@example.com</a></li>
                     <li>📍 Antwerpen, België</li>
                 </ul>
             </div>
-            <div>
-                <h2 class="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">Volg mij</h2>
-                <div class="flex justify-center space-x-4">
-                    <!-- Social icons hier -->
-                    <a href="https://m.webtoo.ls/@astro" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">
-                        <span class="sr-only">Mastodon</span>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                            <path d="M11.19 12.195c2.016-.24..." />
-                        </svg>
-                    </a>
-                    <a href="https://twitter.com/astrodotbuild" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">
+
+            <div class="flex flex-col items-center sm:items-end">
+                <h2 class="text-sm font-semibold mb-2" style="color: var(--color-primary);">Volg mij</h2>
+                <div class="flex items-center space-x-3">
+                    <a href="https://twitter.com/astrodotbuild" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-200 hover:scale-105" style="background: var(--color-surface); border-color: var(--color-border); color: var(--color-primary);" onmouseover="this.style.background='var(--color-primary-100)'" onmouseout="this.style.background='var(--color-surface)'">
                         <span class="sr-only">Twitter</span>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                            <path d="M5.026 15c6.038 0..." />
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.009-.422A6.68 6.68 0 0 0 15 3.542a6.533 6.533 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.084.797A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.766-3.429 3.289 3.289 0 0 0 1.018 4.381A3.323 3.323 0 0 1 .64 6.575v.041a3.283 3.283 0 0 0 2.633 3.218 3.203 3.203 0 0 1-.865.115c-.212 0-.418-.02-.618-.058a3.286 3.286 0 0 0 3.067 2.281A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045 9.344 9.344 0 0 0 5.034 1.475" />
                         </svg>
                     </a>
-                    <a href="https://github.com/withastro/astro" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 transition-colors">
+
+                    <a href="https://github.com/withastro/astro" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-200 hover:scale-105" style="background: var(--color-surface); border-color: var(--color-border); color: var(--color-primary);" onmouseover="this.style.background='var(--color-primary-100)'" onmouseout="this.style.background='var(--color-surface)'">
                         <span class="sr-only">GitHub</span>
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                            <path d="M8 0C3.58 0 0 3.58..." />
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
                         </svg>
                     </a>
                 </div>
             </div>
         </div>
 
-        <div class="border-t border-gray-300 dark:border-gray-700 my-10"></div>
+        <div class="my-6" style="border-top: 1px solid var(--color-border);"></div>
 
-        <div class="text-center text-xs text-gray-500 dark:text-gray-500">
+        <div class="text-center text-xs" style="color: var(--color-text-muted);">
             &copy; {today.getFullYear()} Mathias Meeus. Alle rechten voorbehouden.
         </div>
     </div>

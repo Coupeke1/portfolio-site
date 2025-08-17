@@ -16,114 +16,30 @@ const projects = (await getCollection('projects')).sort(
 <html lang="en">
 <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
-    <style>
-        main {
-            width: 960px;
-        }
-
-        ul {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        ul li {
-            width: calc(50% - 1rem);
-        }
-
-        ul li * {
-            text-decoration: none;
-            transition: 0.2s ease;
-        }
-
-        ul li:first-child {
-            width: 100%;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        ul li:first-child img {
-            width: 100%;
-        }
-
-        ul li:first-child .title {
-            font-size: 2.369rem;
-        }
-
-        ul li img {
-            margin-bottom: 0.5rem;
-            border-radius: 12px;
-        }
-
-        ul li a {
-            display: block;
-        }
-
-        .title {
-            margin: 0;
-            color: rgb(var(--black));
-            line-height: 1;
-        }
-
-        .date {
-            margin: 0;
-            color: rgb(var(--gray));
-        }
-
-        ul li a:hover h4,
-        ul li a:hover .date {
-            color: rgb(var(--accent));
-        }
-
-        ul a:hover img {
-            box-shadow: var(--box-shadow);
-        }
-
-        @media (max-width: 720px) {
-            ul {
-                gap: 0.5em;
-            }
-
-            ul li {
-                width: 100%;
-                text-align: center;
-            }
-
-            ul li:first-child {
-                margin-bottom: 0;
-            }
-
-            ul li:first-child .title {
-                font-size: 1.563em;
-            }
-        }
-    </style>
 </head>
-<body>
+<body class="bg-background text-text-primary">
 <Header/>
-<main class="max-w-5xl mx-auto p-6">
-    <h1 class="text-4xl mb-4">Projects</h1>
+<main class="w-full max-w-[960px] mx-auto p-6">
+    <h1 class="text-4xl mb-4 text-text-primary">Projects</h1>
+
     <ul class="grid gap-6 md:grid-cols-2">
-        {projects.map(project => (
-                <li class="border rounded-lg p-4">
+        {projects.map((project) => (
+                <li class="border rounded-lg p-4 first:col-span-2 first:mb-4">
                     <a href={`/projects/${project.id}/`} class="block" rel="noopener">
                         {project.data.heroImage && (
                                 <Image
                                         src={project.data.heroImage}
-                                        width={720}
-                                        height={360}
+                                        width={1200}
+                                        height={600}
                                         alt={project.data.title ?? 'Project image'}
-                                        class="rounded-md mb-3"
+                                        class="rounded-md mb-3 w-full"
                                 />
                         )}
-                        <h2 class="text-xl title">{project.data.title}</h2>
-                        <p class="text-gray-600">{project.data.shortDescription}</p>
-                        <p class="text-sm text-gray-500 mt-2">
-                            {project.data.pubDate ?
-                                    <FormattedDate date={project.data.pubDate}/> : null}
+
+                        <h2 class="text-xl md:text-2xl first:text-3xl font-semibold mb-1 text-text-primary">{project.data.title}</h2>
+                        <p class="text-text-muted">{project.data.shortDescription}</p>
+                        <p class="text-sm text-text-muted mt-2">
+                            {project.data.pubDate ? <FormattedDate date={project.data.pubDate}/> : null}
                             {project.data.year ? ` • ${project.data.year}` : ''}
                         </p>
                     </a>

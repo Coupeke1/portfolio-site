@@ -15,7 +15,7 @@ features:
   - "Web-config pagina via Wi-Fi"
   - "Failsafe en handmatige override"
 repoUrl: "https://github.com/yourusername/fish-feeder"
-year: 2023
+year: 2025
 ---
 
 Details over de hardware (motor driver, voeding), code snippets en lessons learned.

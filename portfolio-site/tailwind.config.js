@@ -6,17 +6,20 @@ export default {
     theme: {
         extend: {
             colors: {
-                gray: {
-                    DEFAULT: 'rgb(var(--gray) / <alpha-value>)',
-                    light: 'rgb(var(--gray-light) / <alpha-value>)',
-                    dark: 'rgb(var(--gray-dark) / <alpha-value>)',
-                },
-                black: 'rgb(var(--black) / <alpha-value>)',
-            },
-            boxShadow: {
-                DEFAULT: 'var(--box-shadow)',
-            },
-        },
+                primary: 'var(--color-primary)',
+                'primary-100': 'var(--color-primary-100)',
+                secondary: 'var(--color-secondary)',
+                accent: 'var(--color-accent)',
+                background: 'var(--color-bg)',
+                surface: 'var(--color-surface)',
+                border: 'var(--color-border)',
+                'text-primary': 'var(--color-text)',
+                'text-muted': 'var(--color-text-muted)',
+                success: 'var(--color-success)',
+                warning: 'var(--color-warning)',
+                danger: 'var(--color-danger)'
+            }
+        }
     },
     plugins: [],
 };
