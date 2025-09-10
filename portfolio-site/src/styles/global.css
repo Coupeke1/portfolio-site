@@ -76,7 +76,6 @@ body {
 	line-height: 1.7;
 }
 
-/* Aangepaste main styling - alleen voor niet-homepage pagina's */
 main:not(.homepage-main) {
 	width: 720px;
 	max-width: calc(100% - 2em);
@@ -84,10 +83,8 @@ main:not(.homepage-main) {
 	padding: 3em 1em;
 }
 
-/* Specifieke styling voor homepage main */
 .homepage-main {
-	/* Laat Tailwind de breedte en margins regelen */
-	padding: 0; /* Reset padding zodat Tailwind classes werken */
+	padding: 0;
 }
 
 h1,
@@ -179,7 +176,7 @@ pre > code {
 blockquote {
 	border-left: 4px solid var(--accent);
 	padding: 0 0 0 20px;
-	margin: 0px;
+	margin: 0;
 	font-size: 1.333em;
 }
 

@@ -16,36 +16,40 @@ const projects = (await getCollection('projects')).sort(
 <html lang="en">
 <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
+    <title>{SITE_TITLE}</title>
 </head>
 <body class="bg-background text-text-primary">
 <Header/>
-<main class="w-full max-w-[960px] mx-auto p-6">
-    <h1 class="text-4xl mb-4 text-text-primary">Projects</h1>
+<main class="projects-main max-w-5xl text-center mx-auto mb-10 lg:mb-14 px-4 sm:px-6 lg:px-8">
+    <h1 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white mb-6 md:mb-8 lg:mb-12">Projects</h1>
 
-    <ul class="grid gap-6 md:grid-cols-2">
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 mb-10 lg:mb-14">
         {projects.map((project) => (
-                <li class="border rounded-lg p-4 first:col-span-2 first:mb-4">
-                    <a href={`/projects/${project.id}/`} class="block" rel="noopener">
+                <article class="first:col-span-full first:sm:col-span-2 first:lg:col-span-2 first:mb-4">
+                    <a href={`/projects/${project.id}/`} class="group flex flex-col bg-white border border-gray-200 shadow-sm rounded-xl hover:shadow-md focus:outline-none focus:shadow-md transition-all duration-200 h-full" rel="noopener">
                         {project.data.heroImage && (
                                 <Image
                                         src={project.data.heroImage}
                                         width={1200}
                                         height={600}
                                         alt={project.data.title ?? 'Project image'}
-                                        class="rounded-md mb-3 w-full"
+                                        class="w-full object-cover rounded-t-xl aspect-video"
                                 />
                         )}
 
-                        <h2 class="text-xl md:text-2xl first:text-3xl font-semibold mb-1 text-text-primary">{project.data.title}</h2>
-                        <p class="text-text-muted">{project.data.shortDescription}</p>
-                        <p class="text-sm text-text-muted mt-2">
-                            {project.data.pubDate ? <FormattedDate date={project.data.pubDate}/> : null}
-                            {project.data.year ? ` • ${project.data.year}` : ''}
-                        </p>
+                        <div class="p-3 sm:p-4 flex-1 flex flex-col">
+                            <h4 class="text-xs sm:text-sm text-gray-600 dark:text-neutral-400 mb-2">{project.data.title}</h4>
+                            <p class="text-base sm:text-lg font-medium text-gray-800 group-hover:text-blue-600 mb-auto leading-tight">{project.data.shortDescription}</p>
+                            <p class="text-xs sm:text-sm text-gray-500 mt-3">
+                                {project.data.pubDate ?
+                                        <FormattedDate date={project.data.pubDate}/> : null}
+                                {project.data.year ? ` • ${project.data.year}` : ''}
+                            </p>
+                        </div>
                     </a>
-                </li>
+                </article>
         ))}
-    </ul>
+    </section>
 </main>
 <Footer/>
 </body>
