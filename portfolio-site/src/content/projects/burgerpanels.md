@@ -10,6 +10,7 @@ techStack:
   - Vite
   - TypeScript
   - Tailwind CSS
+  - Docker
 role: "Fullstack developer / architect"
 features:
   - "Dynamische vragenlijsten (admin-configurable)"
