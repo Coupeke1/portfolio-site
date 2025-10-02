@@ -2,6 +2,10 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import FeaturedProject from '../components/FeaturedProject.astro';
+import Skills from '../components/Skills.astro';
+import CallToAction from '../components/CallToAction.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 
 const skills = {
@@ -9,9 +13,46 @@ const skills = {
   frontend: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Tailwind CSS'],
   tools: ['Git', 'Astro', 'JavaFX', 'Cisco', 'Raspberry Pi']
 };
+
+const heroData = {
+  title: 'Mathias Meeus',
+  subtitle: 'Full-Stack Developer in Opleiding',
+  description: 'Bachelor Toegepaste Informatica student aan Karel de Grote Hogeschool met expertise in moderne webtechnologieën en een sterke focus op kwaliteit en innovatie.',
+  primaryButton: {
+    text: 'Portfolio Bekijken',
+    href: '/projects'
+  },
+  secondaryButton: {
+    text: 'Meer Informatie',
+    href: '/about'
+  }
+};
+
+const featuredProject = {
+  title: 'Burgerpanel WebApp',
+  type: 'Full-Stack Project',
+  isFeatured: true,
+  description: 'Volledig functionele webapplicatie ontwikkeld met C# en .NET Framework. Demonstreert expertise in full-stack development, database architectuur en gebruikersinterface design.',
+  technologies: ['C#', '.NET', 'PostgreSQL'],
+  link: '/projects',
+  previewTitle: 'Burgerpanel System',
+  previewSubtitle: 'Full-Stack Web Application'
+};
+
+const ctaData = {
+  title: 'Interesse in een samenwerking?',
+  description: 'Ik sta open voor stage-opportuniteiten en junior development posities. Laten we in contact komen en kijken hoe we samen kunnen werken!',
+  primaryButton: {
+    text: 'Neem contact op',
+    href: 'mailto:mathiasmeeus2@gmail.com'
+  },
+  secondaryButton: {
+    text: 'GitHub Repository',
+    href: 'https://github.com/Coupeke1'
+  }
+};
 ---
 
-<!doctype html>
 <html lang="nl" class="scroll-smooth">
 <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -22,184 +63,27 @@ const skills = {
 
 <main class="homepage-main w-full max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
     <!-- Hero Section -->
-    <section class="text-center mb-16 sm:mb-24">
-        <div class="max-w-3xl mx-auto">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]">
-                Mathias Meeus
-            </h1>
-            <p class="text-xl sm:text-2xl md:text-3xl font-medium mb-6 text-[var(--color-primary)]">
-                Full-Stack Developer in Opleiding
-            </p>
-            <p class="text-base sm:text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto leading-relaxed mb-8">
-                Bachelor Toegepaste Informatica student aan Karel de Grote Hogeschool met expertise in
-                moderne webtechnologieën en een sterke focus op kwaliteit en innovatie.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/projects"
-                   class="px-6 py-3 rounded-lg font-semibold transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] hover:scale-105 text-center
-                          !bg-[#6B46C1] !text-white hover:!bg-[#5E3D9E] hover:shadow-lg hover:shadow-purple-200">
-
-                    Portfolio Bekijken
-                </a>
-                <a href="/about"
-                   class="px-6 py-3 rounded-lg font-semibold !border-2 !border-[#6B46C1] !text-[#6B46C1]
-                          hover:!bg-[#F5F3FF] hover:!text-[#5E3D9E] transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] hover:scale-105 text-center">
-                    Meer Informatie
-                </a>
-
-            </div>
-        </div>
-    </section>
+    <Hero 
+        title={heroData.title}
+        subtitle={heroData.subtitle}
+        description={heroData.description}
+        primaryButton={heroData.primaryButton}
+        secondaryButton={heroData.secondaryButton}
+    />
 
     <!-- Featured Project -->
-    <section class="mb-16 sm:mb-24">
-        <div class="text-center mb-10">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Mijn Recente Werk</h2>
-            <div class="w-16 h-1 bg-[var(--color-primary)] mx-auto rounded-full"></div>
-        </div>
-
-        <div class="bg-[var(--color-surface)] rounded-2xl overflow-hidden border border-[var(--color-border)] hover:shadow-xl transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 p-6 sm:p-8">
-                <div class="order-2 lg:order-1">
-                    <div class="flex items-center mb-4">
-                        <span class="inline-block w-3 h-3 rounded-full bg-[var(--color-primary)] mr-2"></span>
-                        <span class="text-sm font-medium text-[var(--color-primary)]">Full-Stack Project</span>
-                        <span class="ml-4 px-3 py-1 text-xs sm:text-sm font-medium rounded-full bg-[var(--color-primary-100)] text-[var(--color-primary)] transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[var(--color-primary-200)]">Uitgelicht</span>
-                    </div>
-                    <h3 class="text-2xl sm:text-3xl font-bold mb-4 text-[var(--color-text)]">Burgerpanel WebApp</h3>
-                    <p class="text-[var(--color-text-muted)] mb-6 leading-relaxed">
-                        Volledig functionele webapplicatie ontwikkeld met C# en .NET Framework.
-                        Demonstreert expertise in full-stack development, database architectuur
-                        en gebruikersinterface design.
-                    </p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="px-3 py-1 text-xs sm:text-sm rounded-full bg-[var(--color-primary-100)] text-[var(--color-primary)] transition-all duration-[ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[var(--color-primary-200)]">C#</span>
-                        <span class="px-3 py-1 text-xs sm:text-sm rounded-full bg-[var(--color-primary-100)] text-[var(--color-primary)] transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[var(--color-primary-200)]">.NET</span>
-                        <span class="px-3 py-1 text-xs sm:text-sm rounded-full bg-[var(--color-primary-100)] text-[var(--color-primary)] transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[var(--color-primary-200)]">PostgreSQL</span>
-                    </div>
-                    <a href="/projects"
-                       class="inline-flex items-center text-[var(--color-primary)] font-medium group transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-[var(--color-primary-800)]">
-                        Bekijk project
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1 group-hover:translate-x-1 transition-transform duration-200" viewBox="0 0 20 20" >
-                            <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                </div>
-                <div class="order-1 lg:order-2 flex items-center justify-center p-4 bg-[var(--color-bg)] rounded-lg border border-[var(--color-border)]">
-                    <div class="text-center">
-                        <div class="w-full h-48 bg-gradient-to-br from-[var(--color-primary-100)] to-[var(--color-primary-200)] rounded-lg flex items-center justify-center mb-4">
-                            <span class="text-[var(--color-primary)] text-lg font-medium">Project Preview</span>
-                        </div>
-                        <h4 class="text-lg font-semibold text-[var(--color-text)]">Burgerpanel System</h4>
-                        <p class="text-sm text-[var(--color-text-muted)]">Full-Stack Web Application</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <FeaturedProject project={featuredProject} />
 
     <!-- Technical Skills -->
-    <section class="mb-16 sm:mb-24">
-        <div class="text-center mb-10">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">Technische Vaardigheden</h2>
-            <p class="text-[var(--color-text-muted)] max-w-2xl mx-auto">Mijn technische expertise en tools waar ik mee werk</p>
-            <div class="w-16 h-1 bg-[var(--color-primary)] mx-auto mt-4 rounded-full"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Backend Development -->
-            <div class="bg-[var(--color-surface)] p-6 rounded-xl border border-[var(--color-border)] hover:shadow-lg transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
-                <div class="w-12 h-12 rounded-lg bg-[var(--color-primary-100)] flex items-center justify-center mb-4 transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[var(--color-primary-200)]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[var(--color-primary)]" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold mb-4 text-[var(--color-primary)] transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-[var(--color-primary-800)]">Backend Development</h3>
-                <div class="flex flex-wrap gap-2">
-                    {skills.backend.map(skill => (
-                        <span class="px-3 py-1.5 text-xs sm:text-sm rounded-full bg-[var(--color-primary-100)] text-[var(--color-primary)] transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[var(--color-primary-200)]">
-                            {skill}
-                        </span>
-                    ))}
-                </div>
-            </div>
-
-            <!-- Frontend Development -->
-            <div class="bg-[var(--color-surface)] p-6 rounded-xl border border-[var(--color-border)] hover:shadow-lg transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
-                <div class="w-12 h-12 rounded-lg bg-[var(--color-primary-100)] flex items-center justify-center mb-4 transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[var(--color-primary-200)]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[var(--color-primary)]" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold mb-4 text-[var(--color-primary)] transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-[var(--color-primary-800)]">Frontend Development</h3>
-                <div class="flex flex-wrap gap-2">
-                    {skills.frontend.map(skill => (
-                        <span class="px-3 py-1.5 text-xs sm:text-sm rounded-full bg-[var(--color-primary-100)] text-[var(--color-primary)] transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[var(--color-primary-200)]">
-                            {skill}
-                        </span>
-                    ))}
-                </div>
-            </div>
-
-            <!-- Tools & Platforms -->
-            <div class="bg-[var(--color-surface)] p-6 rounded-xl border border-[var(--color-border)] hover:shadow-lg transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)]">
-                <div class="w-12 h-12 rounded-lg bg-[var(--color-primary-100)] flex items-center justify-center mb-4 transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[var(--color-primary-200)]">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-[var(--color-primary)]" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold mb-4 text-[var(--color-primary)] transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-[var(--color-primary-800)]">Tools & Platforms</h3>
-                <div class="flex flex-wrap gap-2">
-                    {skills.tools.map(tool => (
-                        <span class="px-3 py-1.5 text-xs sm:text-sm rounded-full bg-[var(--color-primary-100)] text-[var(--color-primary)] transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[var(--color-primary-200)]">
-                            {tool}
-                        </span>
-                    ))}
-                </div>
-            </div>
-        </div>
-    </section>
+    <Skills skills={skills} />
 
     <!-- Call to Action -->
-    <section class="text-center">
-        <div class="bg-gradient-to-r from-[var(--color-primary-50)] to-[var(--color-primary-100)] dark:from-[var(--color-primary-900)] dark:to-[var(--color-primary-800)] rounded-2xl p-8 sm:p-12">
-            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Interesse in een samenwerking?</h2>
-            <p class="text-lg text-[var(--color-text-muted)] mb-8 max-w-2xl mx-auto">
-                Ik sta open voor stage-opportuniteiten en junior development posities.
-                Laten we in contact komen en kijken hoe we samen kunnen werken!
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="mailto:mathiasmeeus2@gmail.com"
-                   class="px-8 py-3.5 rounded-xl font-semibold transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] text-center
-                          bg-white text-[#6B46C1] hover:bg-white/90
-                          shadow-md hover:shadow-lg hover:shadow-purple-200/50
-                          transform hover:-translate-y-0.5 hover:scale-[1.02]
-                          border-2 border-transparent hover:border-[#6B46C1]/20
-                          relative overflow-hidden group">
-                    <span class="relative z-10">Neem contact op</span>
-                    <span class="absolute inset-0 bg-[#6B46C1]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"></span>
-                </a>
-                <a href="https://github.com/Coupeke1"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="px-8 py-3.5 rounded-xl font-semibold transition-all duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] text-center
-                          bg-white text-[#6B46C1] hover:bg-white/90
-                          shadow-md hover:shadow-lg hover:shadow-purple-200/50
-                          transform hover:-translate-y-0.5 hover:scale-[1.02]
-                          border-2 border-transparent hover:border-[#6B46C1]/20
-                          relative overflow-hidden group">
-                    <span class="relative z-10 flex items-center justify-center">
-                        GitHub Repository
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
-                    </span>
-                    <span class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]"></span>
-                </a>
-            </div>
-        </div>
-    </section>
+    <CallToAction 
+        title={ctaData.title}
+        description={ctaData.description}
+        primaryButton={ctaData.primaryButton}
+        secondaryButton={ctaData.secondaryButton}
+    />
 </main>
 
 <Footer />
