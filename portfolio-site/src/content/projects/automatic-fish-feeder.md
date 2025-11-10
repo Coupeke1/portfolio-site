@@ -3,7 +3,7 @@ title: "Automatische visvoeder"
 shortDescription: "Embedded project: automatische visvoeder met MicroPython."
 description: "Een klein embedded project met ESP32 (MicroPython) dat op ingestelde tijden vis voert. Sensor- en motorcontrole, OTA updates en Wi-Fi configuratie."
 pubDate: "2023-11-15"
-heroImage: '../../assets/fish-feeder.jpg'
+heroImage: "../../assets/fish-feeder.jpg"
 techStack:
   - MicroPython
   - ESP32

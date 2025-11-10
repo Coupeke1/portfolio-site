@@ -4,7 +4,7 @@ shortDescription: "Website die helpt met het organiseren van burgerpanels."
 description: "BurgerPanels.org is een webapp voor organisaties om burgerpanels te organiseren, inclusief configureerbare vragenlijsten, breekpunt-answers en suggesties."
 pubDate: "2024-03-10"
 updatedDate: "2025-02-01"
-heroImage: '../../assets/burgerpanels-hero.jpg'
+heroImage: "../../assets/burgerpanels-hero.jpg"
 techStack:
   - .NET Framework
   - Vite
