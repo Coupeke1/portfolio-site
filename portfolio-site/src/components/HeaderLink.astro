@@ -13,18 +13,11 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
         href={href}
         class:list={[
             'inline-block py-4 px-2 no-underline transition-all duration-200 border-b-4 border-transparent',
-            'hover:border-b-4',
             isActive
-                ? 'font-bold border-b-4'
-                : 'hover:font-medium',
+                ? 'font-bold text-primary border-primary'
+                : 'text-text-primary hover:text-primary hover:border-primary hover:font-medium',
             className
         ]}
-        style={isActive
-            ? 'color: var(--color-primary); border-bottom-color: var(--color-primary);'
-            : 'color: var(--color-text);'
-        }
-        onmouseover={!isActive ? "this.style.color='var(--color-primary)'; this.style.borderBottomColor='var(--color-primary)';" : ""}
-        onmouseout={!isActive ? "this.style.color='var(--color-text)'; this.style.borderBottomColor='transparent';" : ""}
         {...props}
 >
     <slot/>
