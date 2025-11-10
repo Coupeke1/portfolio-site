@@ -1,9 +1,9 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
+import type {HTMLAttributes} from 'astro/types';
 
 type Props = HTMLAttributes<'a'> & { href: string };
 
-const { href, class: className, ...props } = Astro.props as Props;
+const {href, class: className, ...props} = Astro.props as Props;
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
 const subpath = pathname.match(/[^\/]+/g);
 const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
@@ -13,13 +13,13 @@ const isActive = href === pathname || href === '/' + (subpath?.[0] || '');
         href={href}
         aria-current={isActive ? 'page' : undefined}
         class:list={[
-            'inline-block py-4 px-2 no-underline transition-all duration-200 border-b-4 border-transparent',
+            'inline-block px-3 py-2 rounded-md text-sm font-medium transition-all duration-200',
             isActive
-                ? 'font-bold text-primary border-primary'
-                : 'text-text-primary hover:text-primary hover:border-primary hover:font-medium',
+                ? 'bg-[var(--color-primary)] text-white shadow-sm dark:bg-[var(--color-primary)] dark:text-white'
+                : 'text-[var(--color-text)] hover:bg-[var(--color-primary)]/10 hover:text-[var(--color-primary)] dark:text-[var(--color-text-muted)] dark:hover:bg-[var(--color-primary)]/20 dark:hover:text-[var(--color-primary)]',
             className
         ]}
         {...props}
 >
-    <slot />
+    <slot/>
 </a>

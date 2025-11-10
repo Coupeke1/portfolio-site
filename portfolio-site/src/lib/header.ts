@@ -1,72 +1,38 @@
 const setupHeader = () => {
     const header = document.getElementById('main-header');
-    const headerContainer = document.getElementById('header-container');
-    const headerContent = document.getElementById('header-content');
-
-    if (!header || !headerContainer || !headerContent) return;
+    if (!header) return;
 
     header.classList.add(
         'transition-all',
-        'duration-500',
-        'ease-in-out'
-    );
-    headerContent.classList.add(
-        'transition-all',
-        'duration-500',
-        'ease-in-out'
+        'duration-700',
+        'ease-[cubic-bezier(0.4,0,0.2,1)]'
     );
 
     const updateHeader = () => {
-        const currentScroll = window.scrollY;
+        const scrolled = window.scrollY > 10;
 
-        if (currentScroll > 10) {
-            header.classList.add(
-                'scrolled',
-                'bg-white/70',
-                'backdrop-blur-md',
-                'translate-y-0',
-                'opacity-100'
-            );
-            header.classList.remove(
-                'bg-transparent',
-                'backdrop-blur-none',
-                '-translate-y-2',
-                'opacity-90'
-            );
-
-            headerContainer.classList.add('max-w-5xl', 'mx-auto', 'px-6');
-            headerContent.classList.add('rounded-xl', 'px-6', 'shadow-sm');
+        if (scrolled) {
+            // shrink and center the entire header
+            header.style.maxWidth = '64rem'; // ~max-w-5xl
+            header.style.margin = '0 auto';
+            header.style.padding = '0 1.5rem';
+            header.style.borderRadius = '0.75rem';
+            header.style.background = 'rgba(255,255,255,0.85)';
+            header.style.backdropFilter = 'blur(12px)';
+            header.style.boxShadow = '0 2px 6px rgba(0,0,0,0.08)';
         } else {
-            header.classList.remove(
-                'scrolled',
-                'bg-white/70',
-                'backdrop-blur-md',
-                'shadow-md',
-                'translate-y-0',
-                'opacity-100'
-            );
-            header.classList.add(
-                'bg-transparent',
-                'backdrop-blur-none',
-                'shadow-none',
-                'opacity-100'
-            );
-
-            headerContainer.classList.remove('max-w-5xl', 'mx-auto', 'px-6');
-            headerContent.classList.remove('rounded-xl', 'px-6', 'shadow-sm');
+            header.style.maxWidth = '100%';
+            header.style.margin = '0';
+            header.style.padding = '0 1rem';
+            header.style.borderRadius = '0';
+            header.style.background = 'transparent';
+            header.style.backdropFilter = 'none';
+            header.style.boxShadow = 'none';
         }
-
-        header.style.transform = 'translateY(0)';
     };
 
     updateHeader();
-
-    const scrollOptions: AddEventListenerOptions = { passive: true };
-    window.addEventListener('scroll', updateHeader, scrollOptions);
-
-    return () => {
-        window.removeEventListener('scroll', updateHeader, scrollOptions);
-    };
+    window.addEventListener('scroll', updateHeader, { passive: true });
 };
 
 if (document.readyState === 'loading') {
