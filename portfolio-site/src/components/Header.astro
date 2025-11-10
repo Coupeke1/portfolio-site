@@ -4,75 +4,23 @@ import HeaderLink from './HeaderLink.astro';
 ---
 
 <script>
-  import setupHeader from '../lib/header';
+    import setupHeader from '../lib/header.ts';
+
+    setupHeader();
 </script>
 
-<header class="sticky top-0 z-50 backdrop-blur-sm transition-all duration-300" id="main-header" style="background: rgba(248, 250, 252, 0.8); border-bottom: 1px solid transparent;">
-  <div class="w-full px-4 transition-all duration-300" id="header-container">
-    <div class="mx-auto transition-all duration-300" id="header-content">
-      <nav class="flex items-center justify-between h-16" aria-label="Hoofdnavigatie">
-        <a href="/" class="text-lg font-bold transition-all duration-300" style="color: var(--color-primary);">
-          {SITE_TITLE}
-        </a>
-        <div class="flex items-center space-x-1">
-          <HeaderLink href="/">Home</HeaderLink>
-          <HeaderLink href="/projects">Projects</HeaderLink>
-          <HeaderLink href="/about">About</HeaderLink>
-        </div>
-      </nav>
-    </div>
-  </div>
+<header
+        id="main-header"
+        class="sticky top-0 z-50 flex items-center justify-between h-16 mx-auto px-4 w-full max-w-none
+         bg-transparent transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden"
+>
+    <a href="/" class="text-lg font-bold" style="color: var(--color-primary);">
+        {SITE_TITLE}
+    </a>
+
+    <nav class="flex items-center space-x-1">
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/projects">Projects</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
+    </nav>
 </header>
-
-<style>
-  header {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: rgba(248, 250, 252, 0.8);
-    backdrop-filter: blur(8px);
-  }
-
-  .dark header {
-    background: rgba(15, 23, 42, 0.8) !important;
-  }
-
-  #header-content {
-    background: transparent;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  header.scrolled #header-content {
-    background: rgba(255, 255, 255, 0.9);
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .dark header.scrolled #header-content {
-    background: rgba(15, 23, 42, 0.9);
-  }
-
-  nav a {
-    padding: 0.5rem 1rem;
-    font-weight: 500;
-    border-radius: 0.5rem;
-    transition: all 0.2s ease;
-  }
-
-  nav a:hover {
-    background-color: var(--color-primary-100);
-    color: var(--color-primary);
-  }
-
-  @media (max-width: 768px) {
-    #header-content {
-      padding: 0.5rem 0;
-      margin: 0 !important;
-      border-radius: 0 !important;
-      width: 100%;
-    }
-    
-    nav a {
-      padding: 0.5rem 0.75rem;
-      font-size: 0.9rem;
-    }
-  }
-</style>
