@@ -15,7 +15,7 @@ features:
   - "Projectpagina's automatisch gegenereerd"
   - "SEO, OpenGraph, sitemap"
   - "Dark mode toggle, accessible (WCAG 2.1)"
-repoUrl: "https://github.com/yourusername/portfolio"
+repoUrl: "https://github.com/Coupeke1/portfolio-site"
 liveUrl: "https://your-portfolio.example"
 year: 2025
 ---
