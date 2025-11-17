@@ -2,6 +2,28 @@
 import { Icon } from "astro-icon/components";
 const { skills } = Astro.props;
 
+const skillColors = {
+    "Java": "#f80000",              // Oracle Red Brand
+    "C#": "#512BD4",                // Microsoft Purple
+    ".NET": "#512BD4",
+    "Node.js": "#339933",
+    "PostgreSQL": "#336791",
+    "Docker": "#2496ED",
+    "HTML5": "#E34F26",
+    "CSS3": "#1572B6",
+    "JavaScript": "#F7DF1E",
+    "TypeScript": "#3178C6",
+    "React": "#61DAFB",
+    "Vue.js": "#42b883",
+    "Tailwind CSS": "#38BDF8",
+    "SCSS": "#CC6699",
+    "Git": "#F05032",
+    "Astro": "#FF5D01",
+    "JavaFX": "#f80000",
+    "Cisco": "#1ba0d7",
+    "Raspberry Pi": "#C51A4A",
+};
+
 const skillIcons = {
     "Java": "simple-icons:oracle",
     "C#": "simple-icons:csharp",
@@ -44,7 +66,11 @@ const skillIcons = {
             <ul class="space-y-2">
                 {skills.backend.map(skill => (
                         <li class="flex items-center gap-2 text-[var(--color-text-muted)]">
-                            <Icon name={skillIcons[skill]} class="w-5 h-5 text-[var(--color-primary)]" />
+                            <Icon
+                                    name={skillIcons[skill]}
+                                    class="w-5 h-5"
+                                    style={`color: ${skillColors[skill]};`}
+                            />
                             {skill}
                         </li>
                 ))}
@@ -60,7 +86,11 @@ const skillIcons = {
             <ul class="space-y-2">
                 {skills.frontend.map(skill => (
                         <li class="flex items-center gap-2 text-[var(--color-text-muted)]">
-                            <Icon name={skillIcons[skill]} class="w-5 h-5 text-[var(--color-primary)]" />
+                            <Icon
+                                    name={skillIcons[skill]}
+                                    class="w-5 h-5"
+                                    style={`color: ${skillColors[skill]};`}
+                            />
                             {skill}
                         </li>
                 ))}
@@ -74,10 +104,14 @@ const skillIcons = {
                 <h3 class="text-xl font-bold">Tools & Platforms</h3>
             </div>
             <ul class="space-y-2">
-                {skills.tools.map(tool => (
+                {skills.tools.map(skill => (
                         <li class="flex items-center gap-2 text-[var(--color-text-muted)]">
-                            <Icon name={skillIcons[tool]} class="w-5 h-5 text-[var(--color-primary)]" />
-                            {tool}
+                            <Icon
+                                    name={skillIcons[skill]}
+                                    class="w-5 h-5"
+                                    style={`color: ${skillColors[skill]};`}
+                            />
+                            {skill}
                         </li>
                 ))}
             </ul>
