@@ -3,8 +3,8 @@ import { Icon } from "astro-icon/components";
 const { skills } = Astro.props;
 
 const skillColors = {
-    "Java": "#f80000",              // Oracle Red Brand
-    "C#": "#512BD4",                // Microsoft Purple
+    "Java": "#f80000",
+    "C#": "#512BD4",
     ".NET": "#512BD4",
     "Node.js": "#339933",
     "PostgreSQL": "#336791",
@@ -46,71 +46,57 @@ const skillIcons = {
     "Raspberry Pi": "simple-icons:raspberrypi",
 };
 ---
-<section class="space-y-10 mt-10">
-    <div class="text-center mb-4">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-2">Skills & Expertise</h2>
-        <p class="text-[var(--color-text-muted)] max-w-xl mx-auto">
-            Een overzicht van de technologieën waar ik dagelijks mee werk.
-        </p>
-        <div class="w-16 h-1 bg-[var(--color-primary)] mx-auto mt-4 rounded-full"></div>
-    </div>
+
+<div class="space-y-6">
+    <h3 class="text-2xl font-semibold text-[var(--color-text)]">Technische Skills</h3>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- BACKEND -->
-        <div class="p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+        <!-- Backend -->
+        <div class="p-6 rounded-xl bg-[var(--color-primary-100)] border border-[var(--color-border)] shadow-sm">
             <div class="flex items-center gap-3 mb-4">
                 <Icon name="lucide:server" class="w-7 h-7 text-[var(--color-primary)]" />
-                <h3 class="text-xl font-bold">Backend Development</h3>
+                <h4 class="text-xl font-semibold text-[var(--color-text)]">Backend Development</h4>
             </div>
+
             <ul class="space-y-2">
                 {skills.backend.map(skill => (
                         <li class="flex items-center gap-2 text-[var(--color-text-muted)]">
-                            <Icon
-                                    name={skillIcons[skill]}
-                                    class="w-5 h-5"
-                                    style={`color: ${skillColors[skill]};`}
-                            />
+                            <Icon name={skillIcons[skill]} class="w-5 h-5" style={`color: ${skillColors[skill]};`} />
                             {skill}
                         </li>
                 ))}
             </ul>
         </div>
 
-        <!-- FRONTEND -->
-        <div class="p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+        <!-- Frontend -->
+        <div class="p-6 rounded-xl bg-[var(--color-primary-100)] border border-[var(--color-border)] shadow-sm">
             <div class="flex items-center gap-3 mb-4">
                 <Icon name="lucide:monitor" class="w-7 h-7 text-[var(--color-primary)]" />
-                <h3 class="text-xl font-bold">Frontend Development</h3>
+                <h4 class="text-xl font-semibold text-[var(--color-text)]">Frontend Development</h4>
             </div>
+
             <ul class="space-y-2">
                 {skills.frontend.map(skill => (
                         <li class="flex items-center gap-2 text-[var(--color-text-muted)]">
-                            <Icon
-                                    name={skillIcons[skill]}
-                                    class="w-5 h-5"
-                                    style={`color: ${skillColors[skill]};`}
-                            />
+                            <Icon name={skillIcons[skill]} class="w-5 h-5" style={`color: ${skillColors[skill]};`} />
                             {skill}
                         </li>
                 ))}
             </ul>
         </div>
 
-        <!-- TOOLS -->
-        <div class="p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+        <!-- Tools -->
+        <div class="p-6 rounded-xl bg-[var(--color-primary-100)] border border-[var(--color-border)] shadow-sm">
             <div class="flex items-center gap-3 mb-4">
                 <Icon name="lucide:settings" class="w-7 h-7 text-[var(--color-primary)]" />
-                <h3 class="text-xl font-bold">Tools & Platforms</h3>
+                <h4 class="text-xl font-semibold text-[var(--color-text)]">Tools & Platforms</h4>
             </div>
+
             <ul class="space-y-2">
                 {skills.tools.map(skill => (
                         <li class="flex items-center gap-2 text-[var(--color-text-muted)]">
-                            <Icon
-                                    name={skillIcons[skill]}
-                                    class="w-5 h-5"
-                                    style={`color: ${skillColors[skill]};`}
-                            />
+                            <Icon name={skillIcons[skill]} class="w-5 h-5" style={`color: ${skillColors[skill]};`} />
                             {skill}
                         </li>
                 ))}
@@ -118,4 +104,4 @@ const skillIcons = {
         </div>
 
     </div>
-</section>
+</div>

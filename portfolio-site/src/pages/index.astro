@@ -6,85 +6,91 @@ import Hero from '../components/Hero.astro';
 import FeaturedProject from '../components/FeaturedProject.astro';
 import Skills from '../components/Skills.astro';
 import CallToAction from '../components/CallToAction.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import {SITE_DESCRIPTION, SITE_TITLE} from '../consts';
+import FullWidth from "../components/FullWidth.astro";
+import previewImg from '../assets/burgerpanels-preview.png';
+
 
 const skills = {
-  backend: ['C#', '.NET', 'Java', 'Node.js', 'PostgreSQL', 'Docker'],
-  frontend: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Tailwind CSS', 'SCSS'],
-  tools: ['Git', 'Astro', 'JavaFX', 'Cisco', 'Raspberry Pi']
+    backend: ['C#', '.NET', 'Java', 'Node.js', 'PostgreSQL', 'Docker'],
+    frontend: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Tailwind CSS', 'SCSS'],
+    tools: ['Git', 'Astro', 'JavaFX', 'Cisco', 'Raspberry Pi']
 };
 
 const heroData = {
-  title: 'Mathias Meeus',
-  subtitle: 'Full-Stack Developer in Opleiding',
-  description: 'Bachelor Toegepaste Informatica student aan Karel de Grote Hogeschool met expertise in moderne webtechnologieën en een sterke focus op kwaliteit en innovatie.',
-  primaryButton: {
-    text: 'Portfolio Bekijken',
-    href: '/projects'
-  },
-  secondaryButton: {
-    text: 'Meer Informatie',
-    href: '/about'
-  }
+    title: 'Mathias Meeus',
+    subtitle: 'Full-Stack Developer in Opleiding',
+    description: 'Bachelor Toegepaste Informatica student aan Karel de Grote Hogeschool met expertise in moderne webtechnologieën en een sterke focus op kwaliteit en innovatie.',
+    primaryButton: {
+        text: 'Portfolio Bekijken',
+        href: '/projects'
+    },
+    secondaryButton: {
+        text: 'Meer Informatie',
+        href: '/about'
+    }
 };
 
 const featuredProject = {
-  title: 'Burgerpanel WebApp',
-  type: 'Full-Stack Project',
-  isFeatured: true,
-  description: 'Volledig functionele webapplicatie ontwikkeld met C# en .NET Framework. Demonstreert expertise in full-stack development, database architectuur en gebruikersinterface design.',
-  technologies: ['C#', '.NET', 'PostgreSQL'],
-  link: '/projects',
-  previewTitle: 'Burgerpanel System',
-  previewSubtitle: 'Full-Stack Web Application'
+    title: 'Burgerpanel WebApp',
+    type: 'Full-Stack Project',
+    isFeatured: true,
+    description: 'Volledig functionele webapplicatie ontwikkeld met C# en .NET Framework. Demonstreert expertise in full-stack development, database architectuur en gebruikersinterface design.',
+    technologies: ['C#', '.NET', 'PostgreSQL'],
+    link: '/projects',
+    previewTitle: 'Burgerpanel System',
+    previewSubtitle: 'Full-Stack Web Application',
+    previewImage: previewImg
 };
 
 const ctaData = {
-  title: 'Interesse in een samenwerking?',
-  description: 'Ik sta open voor stage-opportuniteiten en junior development posities. Laten we in contact komen en kijken hoe we samen kunnen werken!',
-  primaryButton: {
-    text: 'Neem contact op',
-    href: 'mailto:mathiasmeeus2@gmail.com'
-  },
-  secondaryButton: {
-    text: 'GitHub Repository',
-    href: 'https://github.com/Coupeke1'
-  }
+    title: 'Interesse in een samenwerking?',
+    description: 'Ik sta open voor stage-opportuniteiten en junior development posities. Laten we in contact komen en kijken hoe we samen kunnen werken!',
+    primaryButton: {
+        text: 'Neem contact op',
+        href: 'mailto:mathiasmeeus2@gmail.com'
+    },
+    secondaryButton: {
+        text: 'GitHub Repository',
+        href: 'https://github.com/Coupeke1'
+    }
 };
 ---
 
 <html lang="nl" class="scroll-smooth">
 <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION}/>
 </head>
 <body class="bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-200">
-<Header />
+<Header/>
 
 <main class="homepage-main w-full max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
     <!-- Hero Section -->
-    <Hero 
-        title={heroData.title}
-        subtitle={heroData.subtitle}
-        description={heroData.description}
-        primaryButton={heroData.primaryButton}
-        secondaryButton={heroData.secondaryButton}
+    <Hero
+            title={heroData.title}
+            subtitle={heroData.subtitle}
+            description={heroData.description}
+            primaryButton={heroData.primaryButton}
+            secondaryButton={heroData.secondaryButton}
     />
 
     <!-- Featured Project -->
-    <FeaturedProject project={featuredProject} />
+    <FeaturedProject project={featuredProject}/>
 
     <!-- Technical Skills -->
-    <Skills skills={skills} />
+    <FullWidth>
+        <Skills skills={skills}/>
+    </FullWidth>
 
     <!-- Call to Action -->
-    <CallToAction 
-        title={ctaData.title}
-        description={ctaData.description}
-        primaryButton={ctaData.primaryButton}
-        secondaryButton={ctaData.secondaryButton}
+    <CallToAction
+            title={ctaData.title}
+            description={ctaData.description}
+            primaryButton={ctaData.primaryButton}
+            secondaryButton={ctaData.secondaryButton}
     />
 </main>
 
-<Footer />
+<Footer/>
 </body>
 </html>

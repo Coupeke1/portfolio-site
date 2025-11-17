@@ -1,69 +1,67 @@
 ---
 import { Icon } from "astro-icon/components";
+
 const { skills } = Astro.props;
 
-// Combine all skills into a single list
-const allSkills = [
-    ...skills.backend,
-    ...skills.frontend,
-    ...skills.tools,
-];
+// Combine all skills into a single flat array
+const allSkills = [...skills.backend, ...skills.frontend, ...skills.tools];
 
-// Official brand colors
+// Brand colors
 const skillColors = {
-    "Java": "#f80000",
+    Java: "#f80000",
     "C#": "#512BD4",
     ".NET": "#512BD4",
     "Node.js": "#339933",
-    "PostgreSQL": "#336791",
-    "Docker": "#2496ED",
-    "HTML5": "#E34F26",
-    "CSS3": "#1572B6",
-    "JavaScript": "#F7DF1E",
-    "TypeScript": "#3178C6",
-    "React": "#61DAFB",
+    PostgreSQL: "#336791",
+    Docker: "#2496ED",
+    HTML5: "#E34F26",
+    CSS3: "#1572B6",
+    JavaScript: "#F7DF1E",
+    TypeScript: "#3178C6",
+    React: "#61DAFB",
     "Vue.js": "#42b883",
     "Tailwind CSS": "#38BDF8",
-    "SCSS": "#CC6699",
-    "Git": "#F05032",
-    "Astro": "#FF5D01",
-    "JavaFX": "#f80000",
-    "Cisco": "#1ba0d7",
+    SCSS: "#CC6699",
+    Git: "#F05032",
+    Astro: "#FF5D01",
+    JavaFX: "#f80000",
+    Cisco: "#1ba0d7",
     "Raspberry Pi": "#C51A4A",
 };
 
-// Icon mapping
+// Icons
 const skillIcons = {
-    "Java": "simple-icons:oracle",
+    Java: "simple-icons:oracle",
     "C#": "simple-icons:csharp",
     ".NET": "simple-icons:dotnet",
     "Node.js": "simple-icons:nodedotjs",
-    "PostgreSQL": "simple-icons:postgresql",
-    "Docker": "simple-icons:docker",
-    "HTML5": "simple-icons:html5",
-    "CSS3": "simple-icons:css3",
-    "JavaScript": "simple-icons:javascript",
-    "TypeScript": "simple-icons:typescript",
-    "React": "simple-icons:react",
+    PostgreSQL: "simple-icons:postgresql",
+    Docker: "simple-icons:docker",
+    HTML5: "simple-icons:html5",
+    CSS3: "simple-icons:css3",
+    JavaScript: "simple-icons:javascript",
+    TypeScript: "simple-icons:typescript",
+    React: "simple-icons:react",
     "Vue.js": "simple-icons:vuedotjs",
     "Tailwind CSS": "simple-icons:tailwindcss",
-    "SCSS": "simple-icons:sass",
-    "Git": "simple-icons:git",
-    "Astro": "simple-icons:astro",
-    "JavaFX": "simple-icons:oracle",
-    "Cisco": "simple-icons:cisco",
+    SCSS: "simple-icons:sass",
+    Git: "simple-icons:git",
+    Astro: "simple-icons:astro",
+    JavaFX: "simple-icons:oracle",
+    Cisco: "simple-icons:cisco",
     "Raspberry Pi": "simple-icons:raspberrypi",
 };
+
+// Slight speed tweak based on number of skills
+const speed = Math.max(40, allSkills.length * 3); // seconds
 ---
-
-<!-- ⭐ FULL-WIDTH INFINITE SCROLLING STRIP -->
-<div class="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] overflow-hidden py-6 bg-[var(--color-surface)] border-y border-[var(--color-border)]">
-
-    <!-- min-w-max is CRUCIAL for smooth infinite scrolling -->
-    <div class="flex min-w-max animate-marquee whitespace-nowrap">
-
-        <!-- LOOP 1 -->
-        {allSkills.map(skill => (
+<div class="w-full overflow-hidden py-6 bg-[var(--color-surface)] border-y border-[var(--color-border)]">
+    <div
+            class="marquee-track flex whitespace-nowrap min-w-max"
+            style={`animation-duration: ${speed}s;`}
+    >
+        {/** Render list twice for seamless loop */}
+        {[...allSkills, ...allSkills].map(skill => (
                 <div class="flex items-center gap-3 mx-10">
                     <Icon
                             name={skillIcons[skill]}
@@ -73,30 +71,16 @@ const skillIcons = {
                     <span class="text-[var(--color-text)] text-lg font-medium">{skill}</span>
                 </div>
         ))}
-
-        <!-- LOOP 2 (duplicated → infinite seamless scrolling) -->
-        {allSkills.map(skill => (
-                <div class="flex items-center gap-3 mx-10">
-                    <Icon
-                            name={skillIcons[skill]}
-                            class="w-7 h-7"
-                            style={`color: ${skillColors[skill]};`}
-                    />
-                    <span class="text-[var(--color-text)] text-lg font-medium">{skill}</span>
-                </div>
-        ))}
-
     </div>
 </div>
 
 <style>
-    /* Smooth infinite marquee */
     @keyframes marquee {
-        from   { transform: translateX(0%); }
-        to     { transform: translateX(-100%); }
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
     }
 
-    .animate-marquee {
-        animation: marquee 90s linear infinite;
+    .marquee-track {
+        animation: marquee linear infinite;
     }
 </style>

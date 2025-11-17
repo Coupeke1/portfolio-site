@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "./prose.css";
+
 
 :root {
     --color-primary: #6B46C1;

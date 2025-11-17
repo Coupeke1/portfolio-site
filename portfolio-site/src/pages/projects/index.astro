@@ -22,7 +22,7 @@ const projects = (await getCollection('projects')).sort(
 <main class=" max-w-5xl text-center mx-auto mb-10 lg:mb-14 px-4 sm:px-6 lg:px-8">
     <h1 class="text-2xl font-bold md:text-4xl md:leading-tight dark:text-white mb-6 md:mb-8 lg:mb-10">Projects</h1>
 
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 mb-10 lg:mb-14">
+    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 mb-10 lg:mb-14 ">
         {projects.map((project) => (
                 <article class="first:col-span-full first:sm:col-span-2 first:lg:col-span-2 first:mb-4">
                     <a href={`/projects/${project.id}/`} class="group flex flex-col bg-white border border-gray-200 shadow-sm rounded-xl hover:shadow-md focus:outline-none focus:shadow-md transition-all duration-200 h-full" rel="noopener">
