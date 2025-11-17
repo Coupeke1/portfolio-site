@@ -5,15 +5,14 @@ const setupHeader = () => {
     header.classList.add(
         'transition-all',
         'duration-700',
-        'ease-[cubic-bezier(0.4,0,0.2,1)]'
+        'ease-[cubic-bezier(0.2,0,0.2,1)]'
     );
 
     const updateHeader = () => {
         const scrolled = window.scrollY > 10;
 
         if (scrolled) {
-            // shrink and center the entire header
-            header.style.maxWidth = '64rem'; // ~max-w-5xl
+            header.style.maxWidth = '64rem';
             header.style.margin = '0 auto';
             header.style.padding = '0 1.5rem';
             header.style.borderRadius = '0.75rem';
