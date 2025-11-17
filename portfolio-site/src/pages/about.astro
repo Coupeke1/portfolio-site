@@ -1,8 +1,13 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import ProjectPost from '../layouts/ProjectPost.astro';
-import {Icon} from 'astro-icon/components';
+import AboutLayout from "../layouts/AboutLayout.astro";
+
 import AboutSkills from "../components/AboutSkills.astro";
+import AboutHeroImage from "../assets/blog-placeholder-about.jpg";
+import Intro from "../components/about/Intro.astro";
+import WhatIDo from "../components/about/WhatIDo.astro";
+import Strengths from "../components/about/Strengths.astro";
+import Motivation from "../components/about/Motivation.astro";
+import SectionCard from "../components/SectionCard.astro";
 
 const skills = {
     backend: ['C#', '.NET', 'Java', 'Node.js', 'PostgreSQL', 'Docker'],
@@ -11,138 +16,26 @@ const skills = {
 };
 ---
 
-<ProjectPost
-        title="About Me"
-        description=""
-        pubDate={new Date('2025-01-01')}
-        heroImage={AboutHeroImage}
->
+<AboutLayout title="About Me" heroImage={AboutHeroImage}>
 
-    <div class="space-y-12 leading-relaxed text-[var(--color-text)]">
+    <SectionCard>
+        <Intro/>
+    </SectionCard>
 
-        <!-- INTRO -->
-        <section class="space-y-4">
-            <h2 class="text-3xl font-bold">Hey, ik ben Mathias</h2>
-            <p class="text-lg text-[var(--color-text-muted)]">
-                Derdejaars Toegepaste Informatica student (KdG), gespecialiseerd in
-                <span class="font-semibold text-[var(--color-primary)]">software-architectuur</span>,
-                <span class="font-semibold text-[var(--color-primary)]">full-stack development</span>
-                en <span class="font-semibold text-[var(--color-primary)]">data engineering</span>.
-                Ik bouw graag systemen waarin backend-logica, dataflows en front-end samenkomen.
-            </p>
-        </section>
+    <SectionCard>
+        <WhatIDo/>
+    </SectionCard>
 
-        <!-- WHAT I DO -->
-        <section class="space-y-6">
-            <h3 class="text-2xl font-semibold">Wat ik doe</h3>
+    <SectionCard>
+        <Strengths/>
+    </SectionCard>
 
-            <div class="space-y-6">
+    <SectionCard>
+        <Motivation/>
+    </SectionCard>
 
-                <!-- Architecture -->
-                <div class="flex gap-4">
-                    <Icon name="lucide:boxes" class="w-8 h-8 text-[var(--color-primary)] shrink-0"/>
-                    <div>
-                        <h4 class="text-xl font-semibold mb-1">Software Architecture & Microservices</h4>
-                        <ul class="list-disc ml-6 text-[var(--color-text-muted)] space-y-1">
-                            <li>DDD, bounded contexts & context maps</li>
-                            <li>Event-driven communicatie met RabbitMQ</li>
-                            <li>PostgreSQL, Neo4j, Keycloak, Docker</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Framework Development -->
-                <div class="flex gap-4">
-                    <Icon name="lucide:layers" class="w-8 h-8 text-[var(--color-primary)] shrink-0"/>
-                    <div>
-                        <h4 class="text-xl font-semibold mb-1">Framework Development (Reverb)</h4>
-                        <ul class="list-disc ml-6 text-[var(--color-text-muted)] space-y-1">
-                            <li>Eigen Java-MVC framework</li>
-                            <li>Custom template engine met ANTLR</li>
-                            <li>Routing, controllers, DI, HTTP-abstractions</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Data Engineering -->
-                <div class="flex gap-4">
-                    <Icon name="lucide:database" class="w-8 h-8 text-[var(--color-primary)] shrink-0"/>
-                    <div>
-                        <h4 class="text-xl font-semibold mb-1">Data Engineering & Analytics</h4>
-                        <ul class="list-disc ml-6 text-[var(--color-text-muted)] space-y-1">
-                            <li>Spark/Delta Lake ETL pipeline</li>
-                            <li>Neo4j graph imports & geavanceerde Cypher-queries</li>
-                            <li>Dashboards, inzichten & grote datasets</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Frontend -->
-                <div class="flex gap-4">
-                    <Icon name="lucide:monitor" class="w-8 h-8 text-[var(--color-primary)] shrink-0"/>
-                    <div>
-                        <h4 class="text-xl font-semibold mb-1">Front-End Engineering</h4>
-                        <ul class="list-disc ml-6 text-[var(--color-text-muted)] space-y-1">
-                            <li>React + TypeScript domotica UI</li>
-                            <li>Zustand state management, React Query</li>
-                            <li>Custom UI design</li>
-                            <li>Portfolio in Astro + Tailwind</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- STRENGTHS -->
-        <section class="space-y-4">
-            <h3 class="text-2xl font-semibold">Waar ik sterk in ben</h3>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-                <div class="flex items-center gap-3 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
-                    <Icon name="lucide:cpu" class="w-6 h-6 text-[var(--color-primary)]"/>
-                    Software-architectuur & DDD
-                </div>
-
-                <div class="flex items-center gap-3 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
-                    <Icon name="lucide:boxes" class="w-6 h-6 text-[var(--color-primary)]"/>
-                    Microservices & messaging
-                </div>
-
-                <div class="flex items-center gap-3 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
-                    <Icon name="lucide:code-2" class="w-6 h-6 text-[var(--color-primary)]"/>
-                    Java, Kotlin, TypeScript
-                </div>
-
-                <div class="flex items-center gap-3 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
-                    <Icon name="lucide:database" class="w-6 h-6 text-[var(--color-primary)]"/>
-                    Spark, Neo4j, SQL
-                </div>
-
-                <div class="flex items-center gap-3 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
-                    <Icon name="lucide:monitor" class="w-6 h-6 text-[var(--color-primary)]"/>
-                    UI/component engineering
-                </div>
-
-                <div class="flex items-center gap-3 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)]">
-                    <Icon name="lucide:layers" class="w-6 h-6 text-[var(--color-primary)]"/>
-                    Clean Code & software quality
-                </div>
-
-            </div>
-        </section>
-
-        <!-- MOTIVATION -->
-        <section class="space-y-4">
-            <h3 class="text-2xl font-semibold">Waarom ik dit doe</h3>
-            <p class="text-lg text-[var(--color-text-muted)]">
-                Ik denk graag in systemen die logisch, schaalbaar en elegant zijn —
-                zowel onder de motorkap als in de UI. Ik hou van projecten die technisch
-                uitdagend zijn en echte impact hebben.
-            </p>
-        </section>
+    <SectionCard>
         <AboutSkills skills={skills}/>
-    </div>
+    </SectionCard>
 
-</ProjectPost>
+</AboutLayout>

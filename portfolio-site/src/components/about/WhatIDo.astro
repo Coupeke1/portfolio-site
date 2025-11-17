@@ -1,0 +1,64 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div class="space-y-6">
+    <h3 class="text-2xl font-semibold">Wat ik doe</h3>
+
+    <div class="grid grid-cols-1 gap-6">
+
+        <!-- Architecture -->
+        <div class="flex gap-4 p-6 rounded-xl bg-[var(--color-surface)] shadow-sm border border-[var(--color-border)]">
+            <Icon name="lucide:boxes" class="w-8 h-8 text-[var(--color-primary)]" />
+            <div>
+                <h4 class="text-xl font-semibold mb-2">Software Architecture & Microservices</h4>
+                <ul class="list-disc ml-6 text-[var(--color-text-muted)] space-y-1">
+                    <li>DDD, bounded contexts & context maps</li>
+                    <li>Event-driven communicatie met RabbitMQ</li>
+                    <li>PostgreSQL, Neo4j, Keycloak, Docker</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Framework -->
+        <div class="flex gap-4 p-6 rounded-xl bg-[var(--color-surface)] shadow-sm border border-[var(--color-border)]">
+            <Icon name="lucide:layers" class="w-8 h-8 text-[var(--color-primary)]" />
+            <div>
+                <h4 class="text-xl font-semibold mb-2">Framework Development (Reverb)</h4>
+                <ul class="list-disc ml-6 text-[var(--color-text-muted)] space-y-1">
+                    <li>Eigen Java-MVC framework</li>
+                    <li>Custom template engine met ANTLR</li>
+                    <li>Routing, controllers, DI, HTTP abstractions</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Data -->
+        <div class="flex gap-4 p-6 rounded-xl bg-[var(--color-surface)] shadow-sm border border-[var(--color-border)]">
+            <Icon name="lucide:database" class="w-8 h-8 text-[var(--color-primary)]" />
+            <div>
+                <h4 class="text-xl font-semibold mb-2">Data Engineering & Analytics</h4>
+                <ul class="list-disc ml-6 text-[var(--color-text-muted)] space-y-1">
+                    <li>Spark/Delta Lake ETL pipeline</li>
+                    <li>Neo4j graph imports & Cypher-queries</li>
+                    <li>Dashboards & grote datasets</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Frontend -->
+        <div class="flex gap-4 p-6 rounded-xl bg-[var(--color-surface)] shadow-sm border border-[var(--color-border)]">
+            <Icon name="lucide:monitor" class="w-8 h-8 text-[var(--color-primary)]" />
+            <div>
+                <h4 class="text-xl font-semibold mb-2">Front-End Engineering</h4>
+                <ul class="list-disc ml-6 text-[var(--color-text-muted)] space-y-1">
+                    <li>React + TypeScript domotica UI</li>
+                    <li>Zustand & React Query</li>
+                    <li>Custom UI design</li>
+                    <li>Portfolio in Astro + Tailwind</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
