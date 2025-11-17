@@ -2,6 +2,13 @@
 import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
 import ProjectPost from '../layouts/ProjectPost.astro';
 import {Icon} from 'astro-icon/components';
+import AboutSkills from "../components/AboutSkills.astro";
+
+const skills = {
+    backend: ['C#', '.NET', 'Java', 'Node.js', 'PostgreSQL', 'Docker'],
+    frontend: ['HTML5', 'CSS3', 'JavaScript', 'TypeScript', 'React', 'Vue.js', 'Tailwind CSS', 'SCSS'],
+    tools: ['Git', 'Astro', 'JavaFX', 'Cisco', 'Raspberry Pi']
+};
 ---
 
 <ProjectPost
@@ -135,7 +142,7 @@ import {Icon} from 'astro-icon/components';
                 uitdagend zijn en echte impact hebben.
             </p>
         </section>
-
+        <AboutSkills skills={skills}/>
     </div>
 
 </ProjectPost>

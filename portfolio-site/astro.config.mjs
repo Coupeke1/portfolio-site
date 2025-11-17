@@ -14,7 +14,8 @@ export default defineConfig({
     integrations: [mdx(), sitemap(), icon(
         {
             include: {
-                lucide: ['*']
+                lucide: ['*'],
+                "simple-icons": ["*"]
             },
         }
     )],
