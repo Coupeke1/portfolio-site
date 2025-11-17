@@ -2,7 +2,7 @@
 title: "Persoonlijke portfolio"
 shortDescription: "Mijn portfolio website, gebouwd met Astro en TypeScript."
 description: "Professionele portfolio website: SSG met Astro, content in Markdown, Tailwind CSS, OpenGraph en sitemap, gehost op Cloudflare Pages."
-pubDate: "2024-07-01"
+pubDate: "2025-11-17"
 heroImage: "../../assets/portfolio-header.png"
 techStack:
   - Astro
