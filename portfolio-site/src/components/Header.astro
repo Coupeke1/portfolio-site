@@ -1,21 +1,26 @@
 ---
-import {SITE_TITLE} from '../consts';
+import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
 ---
 
-<header class="m-0 px-4 border-b border-[var(--color-border)]"
-        style="background: var(--color-surface); box-shadow: 0 2px 8px rgba(15, 23, 36, 0.05);">
-    <nav class="flex items-center justify-between min-h-16">
-        <h2 class="m-0 text-base">
-            <a href="/" class="no-underline font-bold" style="color: var(--color-primary);">
-                {SITE_TITLE}
-            </a>
-        </h2>
+<script>
+    import setupHeader from '../lib/header.ts';
 
-        <div class="flex gap-2">
-            <HeaderLink href="/">Home</HeaderLink>
-            <HeaderLink href="/projects">Projects</HeaderLink>
-            <HeaderLink href="/about">About</HeaderLink>
-        </div>
+    setupHeader();
+</script>
+
+<header
+        id="main-header"
+        class="sticky top-0 z-50 flex items-center justify-between h-16 mx-auto px-4 w-full max-w-none
+         bg-transparent transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden"
+>
+    <a href="/" class="text-lg font-bold" style="color: var(--color-primary);">
+        {SITE_TITLE}
+    </a>
+
+    <nav class="flex items-center space-x-1">
+        <HeaderLink href="/">Home</HeaderLink>
+        <HeaderLink href="/projects">Projects</HeaderLink>
+        <HeaderLink href="/about">About</HeaderLink>
     </nav>
 </header>
