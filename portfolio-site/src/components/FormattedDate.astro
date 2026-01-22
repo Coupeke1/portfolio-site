@@ -3,7 +3,7 @@ interface Props {
     date: Date | string;
 }
 
-let {date} = Astro.props;
+let { date } = Astro.props;
 
 const d = date instanceof Date ? date : new Date(date);
 ---

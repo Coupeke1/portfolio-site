@@ -24,7 +24,6 @@ features:
   - "High-performance UI with Zustand + React Query"
 repoUrl: "https://github.com/Coupeke1/domotica-app"
 year: 2025
-featured: true
 ---
 
 ## About the project
