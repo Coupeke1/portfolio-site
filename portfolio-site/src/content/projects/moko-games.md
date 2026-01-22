@@ -3,7 +3,7 @@ title: "Moko Games"
 shortDescription: "DDD-driven microservices platform to manage your games"
 description: "This project was an assignment of the Integration Project 3 course. All students were split up based on their major (Developers, AI and Deployment / DevOps). This meant that we had to communicate with external teams for the first time during our Bachelor's Degree. Our goal was to create a platform where users could buy digital board games, play them with friends, and build a community without jumping between different services."
 pubDate: "2025-12-20"
-heroImage: "../../assets/moko-header.png"
+heroImage: "../../assets/moko/moko-header.png"
 techStack:
   - Java 21
   - Spring Boot
@@ -103,8 +103,20 @@ When a user creates a new profile, they automatically receive a random profile p
 
 ## Showcase
 
-You can watch the demo video for a showcase of the platform.
+Demo video:
 
-- Store Page — shows Tic Tac Toe and Checkers
-- Friends Page — friends list and profile pictures
-- Tic Tac Toe — playing against other users
+- https://youtu.be/cTVb87V25zY
+
+Screenshots:
+
+### Store
+
+![](../../assets/moko/moko-store.png)
+
+### Friends
+
+![](../../assets/moko/moko-friends.png)
+
+### Tic Tac Toe
+
+![](../../assets/moko/moko-tictactoe.png)
