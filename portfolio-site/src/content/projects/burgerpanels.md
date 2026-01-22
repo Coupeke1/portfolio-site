@@ -18,7 +18,6 @@ features:
   - "Razor views + API endpoints (no [FromBody])"
   - "Export & reporting"
 repoUrl: "https://github.com/Coupeke1/burgerpanels.org"
-liveUrl: "https://burgerpanels.org"
 year: 2024
 featured: true
 ---
