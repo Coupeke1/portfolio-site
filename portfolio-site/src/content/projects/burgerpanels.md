@@ -19,7 +19,6 @@ features:
   - "Export & reporting"
 repoUrl: "https://github.com/Coupeke1/burgerpanels.org"
 year: 2024
-featured: true
 ---
 
 ## About the project

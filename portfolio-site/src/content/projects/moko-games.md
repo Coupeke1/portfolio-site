@@ -25,6 +25,7 @@ features:
   - "AI chatbot integration"
 repoUrl: "https://github.com/Coupeke1/moko-games"
 year: 2025
+featured: true
 ---
 
 ## One-line summary
