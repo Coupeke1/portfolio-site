@@ -1,7 +1,7 @@
 ---
 title: "Moko Games"
-shortDescription: "DDD-driven microservices platform to manage your games"
-description: "This project was an assignment of the Integration Project 3 course. All students were split up based on their major (Developers, AI and Deployment / DevOps). This meant that we had to communicate with external teams for the first time during our Bachelor's Degree. Our goal was to create a platform where users could buy digital board games, play them with friends, and build a community without jumping between different services."
+shortDescription: "DDD-driven microservices platform for buying, playing and socializing around digital board games."
+description: "Course project (Integration Project 3) built in cross-discipline teams. We designed and implemented a DDD microservices platform where users can purchase digital board games, play with friends (or AI), and use social + chat features in one place."
 pubDate: "2025-12-20"
 heroImage: "../../assets/moko/moko-header.png"
 techStack:
@@ -18,105 +18,110 @@ techStack:
   - Websockets
 role: "Fullstack Developer / Architect"
 features:
-  - "Store & Library Management"
-  - "Social Features"
-  - "Multiplayer Features"
-  - "Chat functionality"
-  - "AI-player integration"
-  - "AI-chatbot integration"
+  - "Store & Library management"
+  - "Profiles, friends & social features"
+  - "Real-time lobby, chat & notifications"
+  - "Multiplayer + AI opponents"
+  - "AI chatbot integration"
 repoUrl: "https://github.com/Coupeke1/keep-dishes-going"
 year: 2025
 ---
 
 ## About the project
 
-This project was an assignment for the Integration Project 3 course. Students were divided based on their major (Developers, AI and Deployment / DevOps). This meant we had to collaborate with external teams for the first time during our bachelor's degree.
+**Moko Games** was built for *Integration Project 3*. For the first time in our bachelor program we worked in **separate majors** (Development, AI, and DevOps/Deployment) and had to coordinate across teams like a real product organization.
 
-Our goal was to build a platform where users can buy digital board games, play together and build a community without having to switch between different services.
+The goal was straightforward: build **one platform** where users can:
 
----
-
-## Core Features
-
-- Store & Library Management  
-  - Browse and purchase (integration with a payment service) digital board games and manage your personal library.
-- Social Features  
-  - Profile management (achievements, favorites, statistics) and friend connections.
-- Multiplayer Features  
-  - Lobby creation and invitations + playing with friends or against an AI.
-- Communication  
-  - Chat with friends or with an AI for platform information + chat during lobby or game + notifications.
-- Games  
-  - Tic Tac Toe, Checkers and an external Chess prototype with a translation layer.
+- buy digital board games,
+- play them with friends (or against an AI),
+- and interact through social features — without hopping between different services.
 
 ---
 
-## Architecture
+## What we built
 
-We chose a microservices architecture due to the complexity and scale of Moko. Benefits:
-- Independent development (parallel teams).
-- Scalability (horizontal scaling for specific services).
-- Clear domain boundaries and loose coupling via events.
+### Store & Library
 
-We created a detailed plan of the different microservices and their communication patterns. All real-time features (Lobby, Chat and Notifications) are implemented with WebSockets instead of polling. For this we used a gateway service that routes messages through the platform.
+- A store where users can browse games, purchase them (payment integration), and manage a personal library.
+- Clear separation between “store catalog” concerns and “owned library” concerns.
+
+### Social & Community
+
+- User profiles with stats/achievements and a friends system.
+- A small fun touch: when a user creates a new profile, we automatically assign a **random profile picture** via **TheCatAPI**: https://thecatapi.com/
+
+### Multiplayer & Real-time communication
+
+- Real-time lobbies, invitations, chat and notifications.
+- We used **WebSockets** for real-time features (instead of polling) and routed messages through a gateway.
+
+### Games
+
+- Playable **Tic Tac Toe** and **Checkers**.
+- A **Chess prototype** integrated through a translation/adaptation layer.
+
+---
+
+## Architecture (high level)
+
+We picked a **DDD + microservices** approach because the scope was too broad for a single codebase and we wanted multiple teams to work in parallel.
+
+Key architectural ideas:
+
+- **Bounded contexts** per domain area (store, profiles, lobby/chat, games, …)
+- **Asynchronous integration via events** (RabbitMQ)
+- **Security & identity** via Keycloak
+- **Gateway for real-time** routing (WebSockets)
 
 ---
 
 ## Frontend
 
-The frontend is written in React with Tailwind, Zustand and Axios. We started with designs in Figma and then built component-driven. Key principles:
-- User-centric navigation
-- Consistent design and visual language
-- Responsive and modern design
+The frontend is built with **React + Tailwind**, and uses **Zustand** and **Axios** for state and data access.
 
-Project structure (package-by-feature) and a custom component library. Data fetching and UI state are separated per service.
+We started with Figma designs and then implemented the UI **component-first**, keeping a consistent visual language.
 
-Example folder structure:
-- src/app.tsx
-- src/components/...
-- src/features/... (cart, chat, checkout, friends, games, library, lobby, notifications, profiles, store)
-- src/lib (api-client, socket-client, etc.)
+Example structure (package-by-feature):
+
+- `src/app.tsx`
+- `src/components/...`
+- `src/features/...` *(cart, chat, checkout, friends, games, library, lobby, notifications, profiles, store)*
+- `src/lib/...` *(api-client, socket-client, etc.)*
 
 ---
 
-## Testing and Local Development
+## Testing & local development
 
-We achieved ~90% test coverage with unit and integration tests. Local development with all microservices was resource-intensive (many JVMs/IDEs). Solution: a local Docker environment for development where almost all backend services could run via host.docker.internal — significantly less memory usage than running all services in IDEs.
+We reached roughly **~90% test coverage** using unit + integration tests.
 
----
-
-## Conclusion
-
-- Microservices were the right choice for this project.
-- Early specification of the design gave an advantage for backend and frontend.
-- Communication with external teams (AI, DevOps) can still improve.
-- Docker is essential for such architectures.
-- Tutors appreciated the neat code conventions, architecture decisions and clean code.
+Running all services locally inside IDEs was heavy (lots of JVMs), so we set up a **Docker-based dev environment**. That allowed most services to run efficiently while still supporting local workflows.
 
 ---
 
-## Pssst
+## Lessons learned
 
-When a user creates a new profile, they automatically receive a random profile picture from an external API. Click here for more information.
+- Microservices were a good fit **because multiple teams worked in parallel**.
+- Specifying the design early accelerated both backend and frontend.
+- Cross-team communication (especially with AI/DevOps) was the biggest growth area.
+- Docker is essential once your architecture grows beyond a single service.
 
 ---
 
-## Showcase
+## Demo & screenshots
 
-Demo video:
+### Demo video
 
-- https://youtu.be/cTVb87V25zY
-
-Screenshots:
+<iframe width="100%" height="420" src="https://www.youtube-nocookie.com/embed/cTVb87V25zY" title="Moko Games demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Store
 
-![](../../assets/moko/moko-store.png)
+![Store page](../../assets/moko/moko-store.png)
 
 ### Friends
 
-![](../../assets/moko/moko-friends.png)
+![Friends page](../../assets/moko/moko-friends.png)
 
 ### Tic Tac Toe
 
-![](../../assets/moko/moko-tictactoe.png)
+![Tic Tac Toe](../../assets/moko/moko-tictactoe.png)
