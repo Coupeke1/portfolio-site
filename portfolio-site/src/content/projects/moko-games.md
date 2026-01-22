@@ -112,7 +112,7 @@ Running all services locally inside IDEs was heavy (lots of JVMs), so we set up 
 
 ### Demo video
 
-<iframe width="100%" height="420" src="https://www.youtube-nocookie.com/embed/cTVb87V25zY" title="Moko Games demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="100%" height="420" src="https://www.youtube-nocookie.com/embed/cTVb87V25zY" title="Moko Games demo" style="border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>llowfullscreen></iframe>
 
 ### Store
 
