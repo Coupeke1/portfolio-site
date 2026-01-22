@@ -24,7 +24,8 @@ year: 2024
 ## About the project
 
 BurgerPanels.org is a web application that allows organizations to **set up, manage and analyze citizen panels**.  
-The core consists of dynamically configurable **questionnaires**, breakpoints that determine logic, and automatic **suggestions** based on answers.
+The core consists of dynamically configurable **questionnaires**, breakpoints that determine logic, and automatic *
+*suggestions** based on answers.
 
 ## Architecture & Features
 

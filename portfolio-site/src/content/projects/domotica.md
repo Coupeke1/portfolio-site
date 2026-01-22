@@ -30,9 +30,11 @@ featured: true
 ## About the project
 
 The **Domotica Control Center** application is a comprehensive front-end solution for managing a smart home.  
-Users can **create scenes**, control devices in **real-time**, view their home via an **interactive floorplan**, and track all activity through **logging dashboards**.
+Users can **create scenes**, control devices in **real-time**, view their home via an **interactive floorplan**, and
+track all activity through **logging dashboards**.
 
-The app is fully built in **React + TypeScript**, with a strong focus on **performance**, **usability** and **reusable UI components**.
+The app is fully built in **React + TypeScript**, with a strong focus on **performance**, **usability** and **reusable
+UI components**.
 
 ## Architecture & Features
 
@@ -60,4 +62,5 @@ The app is fully built in **React + TypeScript**, with a strong focus on **perfo
 
 ## Result
 
-A **professional**, **scalable** and **fast home automation interface** that offers all functionality in one platform to fully manage a smart home — from daily operation to advanced automation.
+A **professional**, **scalable** and **fast home automation interface** that offers all functionality in one platform to
+fully manage a smart home — from daily operation to advanced automation.

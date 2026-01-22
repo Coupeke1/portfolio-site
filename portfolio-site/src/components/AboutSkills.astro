@@ -1,6 +1,6 @@
 ---
-import { Icon } from "astro-icon/components";
-const { skills } = Astro.props;
+import {Icon} from "astro-icon/components";
+const {skills} = Astro.props;
 
 const skillColors = {
     "Java": "#f80000",
@@ -53,14 +53,14 @@ const skillIcons = {
         <!-- Backend -->
         <div class="p-6 rounded-xl bg-[var(--color-primary-100)] border border-[var(--color-border)] shadow-sm">
             <div class="flex items-center gap-3 mb-4">
-                <Icon name="lucide:server" class="w-7 h-7 text-[var(--color-primary)]" />
+                <Icon name="lucide:server" class="w-7 h-7 text-[var(--color-primary)]"/>
                 <h4 class="text-xl font-semibold text-[var(--color-text)]">Backend Development</h4>
             </div>
 
             <ul class="space-y-2">
                 {skills.backend.map(skill => (
                         <li class="flex items-center gap-2 text-[var(--color-text-muted)]">
-                            <Icon name={skillIcons[skill]} class="w-5 h-5" style={`color: ${skillColors[skill]};`} />
+                            <Icon name={skillIcons[skill]} class="w-5 h-5" style={`color: ${skillColors[skill]};`}/>
                             {skill}
                         </li>
                 ))}
@@ -70,14 +70,14 @@ const skillIcons = {
         <!-- Frontend -->
         <div class="p-6 rounded-xl bg-[var(--color-primary-100)] border border-[var(--color-border)] shadow-sm">
             <div class="flex items-center gap-3 mb-4">
-                <Icon name="lucide:monitor" class="w-7 h-7 text-[var(--color-primary)]" />
+                <Icon name="lucide:monitor" class="w-7 h-7 text-[var(--color-primary)]"/>
                 <h4 class="text-xl font-semibold text-[var(--color-text)]">Frontend Development</h4>
             </div>
 
             <ul class="space-y-2">
                 {skills.frontend.map(skill => (
                         <li class="flex items-center gap-2 text-[var(--color-text-muted)]">
-                            <Icon name={skillIcons[skill]} class="w-5 h-5" style={`color: ${skillColors[skill]};`} />
+                            <Icon name={skillIcons[skill]} class="w-5 h-5" style={`color: ${skillColors[skill]};`}/>
                             {skill}
                         </li>
                 ))}
@@ -87,14 +87,14 @@ const skillIcons = {
         <!-- Tools -->
         <div class="p-6 rounded-xl bg-[var(--color-primary-100)] border border-[var(--color-border)] shadow-sm">
             <div class="flex items-center gap-3 mb-4">
-                <Icon name="lucide:settings" class="w-7 h-7 text-[var(--color-primary)]" />
+                <Icon name="lucide:settings" class="w-7 h-7 text-[var(--color-primary)]"/>
                 <h4 class="text-xl font-semibold text-[var(--color-text)]">Tools & Platforms</h4>
             </div>
 
             <ul class="space-y-2">
                 {skills.tools.map(skill => (
                         <li class="flex items-center gap-2 text-[var(--color-text-muted)]">
-                            <Icon name={skillIcons[skill]} class="w-5 h-5" style={`color: ${skillColors[skill]};`} />
+                            <Icon name={skillIcons[skill]} class="w-5 h-5" style={`color: ${skillColors[skill]};`}/>
                             {skill}
                         </li>
                 ))}

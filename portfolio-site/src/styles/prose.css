@@ -10,10 +10,21 @@
     @apply font-bold text-[var(--color-text)] mt-8 mb-4;
 }
 
-.prose h1 { @apply text-4xl; }
-.prose h2 { @apply text-3xl; }
-.prose h3 { @apply text-2xl; }
-.prose h4 { @apply text-xl; }
+.prose h1 {
+    @apply text-4xl;
+}
+
+.prose h2 {
+    @apply text-3xl;
+}
+
+.prose h3 {
+    @apply text-2xl;
+}
+
+.prose h4 {
+    @apply text-xl;
+}
 
 .prose p {
     @apply my-4 text-[var(--color-text-muted)];

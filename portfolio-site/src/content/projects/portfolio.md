@@ -22,8 +22,10 @@ year: 2025
 
 ## About the project
 
-This portfolio is built with **Astro**, **TypeScript** and **Tailwind CSS**, focusing on speed, simplicity and professional presentation.  
-All content (projects, pages) is managed via **Markdown + Astro Content Collections**, allowing new items to be automatically generated as pages.
+This portfolio is built with **Astro**, **TypeScript** and **Tailwind CSS**, focusing on speed, simplicity and
+professional presentation.  
+All content (projects, pages) is managed via **Markdown + Astro Content Collections**, allowing new items to be
+automatically generated as pages.
 
 ## Architecture & Features
 

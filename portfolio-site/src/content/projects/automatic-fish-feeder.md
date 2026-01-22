@@ -22,30 +22,36 @@ year: 2025
 
 ## About the project
 
-The automatic fish feeder is a compact embedded system that uses an **ESP32 with MicroPython** to feed fish at fixed times.  
+The automatic fish feeder is a compact embedded system that uses an **ESP32 with MicroPython** to feed fish at fixed
+times.  
 The **DS1307 RTC** stores all feeding times persistently and a **continuous-rotation servo** dispenses food precisely.
 
-This project demonstrates experience with **embedded software**, **hardware control**, **threading**, and **lightweight network communication**.
+This project demonstrates experience with **embedded software**, **hardware control**, **threading**, and **lightweight
+network communication**.
 
 ---
 
 ## Key components
 
 ### Time-controlled feeding
+
 - 18 configurable time slots
 - Persistently stored in RTC-NVRAM
 - Works without Wi-Fi dependency
 
 ### Servo control
+
 - PWM-controlled continuous-rotation servo
 - Separate thread for timing
 - Reliable behavior during network activity
 
 ### Manual operation
+
 - Physical button (with debouncing)
 - Immediate feeding, even without network
 
 ### Network features
+
 - Small TCP protocol for remote configuration
 - Reading and setting via a client
 - Automatic NTP sync (with failsafe logic)
@@ -54,4 +60,5 @@ This project demonstrates experience with **embedded software**, **hardware cont
 
 ## Result
 
-An autonomous, reliable and easily configurable system that precisely executes feeding times — ideal as a demonstration of **firmware development**, **low-level hardware**, and **embedded architecture**.
+An autonomous, reliable and easily configurable system that precisely executes feeding times — ideal as a demonstration
+of **firmware development**, **low-level hardware**, and **embedded architecture**.

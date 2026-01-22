@@ -22,7 +22,8 @@ year: 2025
 
 ## Over het project
 
-Keep Dishes Going is een **DDD‑microservicesplatform** waarin Restaurant-, Order- en Delivery-services autonoom werken en communiceren via **RabbitMQ-domeinevents**. Elke service bezit zijn eigen databank en volgt een strikt domeinmodel.
+Keep Dishes Going is een **DDD‑microservicesplatform** waarin Restaurant-, Order- en Delivery-services autonoom werken
+en communiceren via **RabbitMQ-domeinevents**. Elke service bezit zijn eigen databank en volgt een strikt domeinmodel.
 
 ---
 
@@ -49,4 +50,5 @@ Keep Dishes Going is een **DDD‑microservicesplatform** waarin Restaurant-, Ord
 
 ## Resultaat
 
-Een helder gestructureerd, schaalbaar en onderhoudbaar platform dat sterke **domeinarchitectuur** combineert met moderne **event‑driven microservices**.
+Een helder gestructureerd, schaalbaar en onderhoudbaar platform dat sterke **domeinarchitectuur** combineert met moderne
+**event‑driven microservices**.

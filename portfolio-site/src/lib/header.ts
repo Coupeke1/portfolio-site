@@ -31,7 +31,7 @@ const setupHeader = () => {
     };
 
     updateHeader();
-    window.addEventListener('scroll', updateHeader, { passive: true });
+    window.addEventListener('scroll', updateHeader, {passive: true});
 };
 
 if (document.readyState === 'loading') {

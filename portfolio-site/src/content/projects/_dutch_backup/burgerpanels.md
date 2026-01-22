@@ -26,7 +26,8 @@ featured: true
 ## Over het project
 
 BurgerPanels.org is een webapplicatie waarmee organisaties **burgerpanels kunnen opzetten, beheren en analyseren**.  
-De kern bestaat uit dynamisch configureerbare **vragenlijsten**, breekpunten die logica bepalen, en automatische **suggesties** op basis van antwoorden.
+De kern bestaat uit dynamisch configureerbare **vragenlijsten**, breekpunten die logica bepalen, en automatische *
+*suggesties** op basis van antwoorden.
 
 ## Architectuur & Features
 
@@ -46,4 +47,5 @@ De kern bestaat uit dynamisch configureerbare **vragenlijsten**, breekpunten die
 
 ## Resultaat
 
-Een stabiele, uitbreidbare en gebruiksvriendelijke tool die organisaties helpt om burgerpanels efficiënt te organiseren en analyseren.
+Een stabiele, uitbreidbare en gebruiksvriendelijke tool die organisaties helpt om burgerpanels efficiënt te organiseren
+en analyseren.

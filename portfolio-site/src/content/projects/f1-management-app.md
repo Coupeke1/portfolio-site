@@ -26,9 +26,12 @@ year: 2024
 
 ## About the project
 
-This app is an **F1 team management application** built with modern Android technologies like **Jetpack Compose**, **MVVM**, **StateFlow**, **Hilt DI** and **Navigation Compose**. Users can manage Formula 1 teams and drivers, with functionality for creating, updating, deleting and navigating between teams.
+This app is an **F1 team management application** built with modern Android technologies like **Jetpack Compose**, *
+*MVVM**, **StateFlow**, **Hilt DI** and **Navigation Compose**. Users can manage Formula 1 teams and drivers, with
+functionality for creating, updating, deleting and navigating between teams.
 
-The application uses a **repository + API service** structure for data retrieval and uses **DataStore** for user settings. Thanks to Compose, the UI is fully declarative and responsive.
+The application uses a **repository + API service** structure for data retrieval and uses **DataStore** for user
+settings. Thanks to Compose, the UI is fully declarative and responsive.
 
 ## Architecture & Features
 
@@ -49,4 +52,6 @@ The application uses a **repository + API service** structure for data retrieval
 
 ## Result
 
-A modern, scalable and well-organized Android application that demonstrates knowledge of **Compose**, **MVVM**, **Hilt**, **API integration**, **state management** and **UI/UX design**. Designed to be extended with real-time data or additional management features.
+A modern, scalable and well-organized Android application that demonstrates knowledge of **Compose**, **MVVM**, **Hilt
+**, **API integration**, **state management** and **UI/UX design**. Designed to be extended with real-time data or
+additional management features.

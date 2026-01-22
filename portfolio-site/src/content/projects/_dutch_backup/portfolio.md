@@ -22,8 +22,10 @@ year: 2025
 
 ## Over het project
 
-Deze portfolio is gebouwd met **Astro**, **TypeScript** en **Tailwind CSS**, met de focus op snelheid, eenvoud en professionele presentatie.  
-Alle content (projecten, pagina’s) wordt beheerd via **Markdown + Astro Content Collections**, waardoor nieuwe items automatisch als pagina worden gegenereerd.
+Deze portfolio is gebouwd met **Astro**, **TypeScript** en **Tailwind CSS**, met de focus op snelheid, eenvoud en
+professionele presentatie.  
+Alle content (projecten, pagina’s) wordt beheerd via **Markdown + Astro Content Collections**, waardoor nieuwe items
+automatisch als pagina worden gegenereerd.
 
 ## Architectuur & Features
 
@@ -42,4 +44,5 @@ Alle content (projecten, pagina’s) wordt beheerd via **Markdown + Astro Conten
 
 ## Resultaat
 
-Een snelle, lichtgewicht en eenvoudig uitbreidbare portfolio-website waarmee projecten en ervaring professioneel gepresenteerd worden.
+Een snelle, lichtgewicht en eenvoudig uitbreidbare portfolio-website waarmee projecten en ervaring professioneel
+gepresenteerd worden.

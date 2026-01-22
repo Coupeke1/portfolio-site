@@ -30,9 +30,11 @@ featured: true
 ## Over het project
 
 De **Domotica Control Center** applicatie is een uitgebreide front-end oplossing om een slimme woning te beheren.  
-Gebruikers kunnen **scenes aanmaken**, toestellen **real-time bedienen**, hun woning bekijken via een **interactieve floorplan**, en alle activiteit volgen via **logging dashboards**.
+Gebruikers kunnen **scenes aanmaken**, toestellen **real-time bedienen**, hun woning bekijken via een **interactieve
+floorplan**, en alle activiteit volgen via **logging dashboards**.
 
-De app is volledig gebouwd in **React + TypeScript**, met een sterke focus op **performance**, **gebruiksvriendelijkheid** en **herbruikbare UI-componenten**.
+De app is volledig gebouwd in **React + TypeScript**, met een sterke focus op **performance**, **gebruiksvriendelijkheid
+** en **herbruikbare UI-componenten**.
 
 ## Architectuur & Features
 
@@ -60,5 +62,6 @@ De app is volledig gebouwd in **React + TypeScript**, met een sterke focus op **
 
 ## Resultaat
 
-Een **professionele**, **schaalbare** en **snelle domotica-interface** die in één platform alle functionaliteit aanbiedt om een slimme woning volledig te beheren — van dagelijkse bediening tot geavanceerde automatisatie.
+Een **professionele**, **schaalbare** en **snelle domotica-interface** die in één platform alle functionaliteit aanbiedt
+om een slimme woning volledig te beheren — van dagelijkse bediening tot geavanceerde automatisatie.
 
