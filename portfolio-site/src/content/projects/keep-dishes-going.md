@@ -1,7 +1,7 @@
 ---
 title: "Keep Dishes Going"
-shortDescription: "DDD‑gedreven microservicesplatform voor restaurants, bestellingen en leveringen."
-description: "Distributiesysteem met autonome services voor Restaurant, Order en Delivery, gekoppeld via RabbitMQ‑events en per‑service databanken."
+shortDescription: "DDD-driven microservices platform for restaurants, orders and deliveries."
+description: "Distribution system with autonomous services for Restaurant, Order and Delivery, connected via RabbitMQ events and per-service databases."
 pubDate: "2025-01-15"
 heroImage: "../../assets/keepdishesgoing-header.png"
 techStack:
@@ -13,40 +13,40 @@ techStack:
   - Keycloak
 role: "Fullstack Developer / Architect"
 features:
-  - "Gescheiden bounded contexts"
-  - "Event-driven integratie"
-  - "Eigen databank-schema per service"
+  - "Separated bounded contexts"
+  - "Event-driven integration"
+  - "Own database schema per service"
 repoUrl: "https://github.com/Coupeke1/keep-dishes-going"
 year: 2025
 ---
 
-## Over het project
+## About the project
 
-Keep Dishes Going is een **DDD‑microservicesplatform** waarin Restaurant-, Order- en Delivery-services autonoom werken en communiceren via **RabbitMQ-domeinevents**. Elke service bezit zijn eigen databank en volgt een strikt domeinmodel.
+Keep Dishes Going is a **DDD microservices platform** where Restaurant, Order and Delivery services operate autonomously and communicate via **RabbitMQ domain events**. Each service owns its own database and follows a strict domain model.
 
 ---
 
-## Belangrijkste onderdelen
+## Key components
 
 ### Restaurant Service
 
-* Beheert restaurants, menukaarten en beschikbaarheden.
+* Manages restaurants, menus and availability.
 
 ### Order Service
 
-* Verwerkt orders en publiceert events zoals *OrderPlaced*.
-* Heeft hele basic **typescript front-end** aangezien dit geen vereiste was voor dit project.
+* Processes orders and publishes events like *OrderPlaced*.
+* Has a very basic **TypeScript front-end** since this was not a requirement for this project.
 
 ### Delivery Service
 
-* Routebeheer voor drivers + eventconsumptie.
+* Route management for drivers + event consumption.
 
 ### Messaging
 
-* Alle services interageren asynchroon via RabbitMQ.
+* All services interact asynchronously via RabbitMQ.
 
 ---
 
-## Resultaat
+## Result
 
-Een helder gestructureerd, schaalbaar en onderhoudbaar platform dat sterke **domeinarchitectuur** combineert met moderne **event‑driven microservices**.
+A clearly structured, scalable and maintainable platform that combines strong **domain architecture** with modern **event-driven microservices**.

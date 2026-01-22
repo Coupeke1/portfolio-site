@@ -1,7 +1,7 @@
 ---
 title: "BurgerPanels.org"
-shortDescription: "Website die helpt met het organiseren van burgerpanels."
-description: "BurgerPanels.org is een webapp voor organisaties om burgerpanels te organiseren, inclusief configureerbare vragenlijsten, breekpunt-answers en suggesties."
+shortDescription: "Website that helps organize citizen panels."
+description: "BurgerPanels.org is a web app for organizations to organize citizen panels, including configurable questionnaires, breakpoint answers and suggestions."
 pubDate: "2024-03-10"
 updatedDate: "2025-02-01"
 heroImage: "../../assets/burgerpanels-header.png"
@@ -13,9 +13,9 @@ techStack:
   - Docker
 role: "Fullstack developer / architect"
 features:
-  - "Dynamische vragenlijsten (admin-configurable)"
-  - "Breekpunt logica met suggesties"
-  - "Razor views + API endpoints (geen [FromBody])"
+  - "Dynamic questionnaires (admin-configurable)"
+  - "Breakpoint logic with suggestions"
+  - "Razor views + API endpoints (no [FromBody])"
   - "Export & reporting"
 repoUrl: "https://github.com/Coupeke1/burgerpanels.org"
 liveUrl: "https://burgerpanels.org"
@@ -23,27 +23,27 @@ year: 2024
 featured: true
 ---
 
-## Over het project
+## About the project
 
-BurgerPanels.org is een webapplicatie waarmee organisaties **burgerpanels kunnen opzetten, beheren en analyseren**.  
-De kern bestaat uit dynamisch configureerbare **vragenlijsten**, breekpunten die logica bepalen, en automatische **suggesties** op basis van antwoorden.
+BurgerPanels.org is a web application that allows organizations to **set up, manage and analyze citizen panels**.  
+The core consists of dynamically configurable **questionnaires**, breakpoints that determine logic, and automatic **suggestions** based on answers.
 
-## Architectuur & Features
+## Architecture & Features
 
-- **.NET Framework backend** met Razor Views + API endpoints
-- **Admin-configurable vragenlijsten** (velden, types, validatie)
-- **Breekpuntlogica** die vervolgvragen en suggesties bepaalt
+- **.NET Framework backend** with Razor Views + API endpoints
+- **Admin-configurable questionnaires** (fields, types, validation)
+- **Breakpoint logic** that determines follow-up questions and suggestions
 - **Front-end in TypeScript + Vite + Tailwind CSS**
-- **Docker setup** voor consistente deployments
-- **Export & rapportage** voor resultaten
+- **Docker setup** for consistent deployments
+- **Export & reporting** for results
 
-## Technische uitdagingen
+## Technical challenges
 
-- Validatie van dynamische formulieren (serverside + clientside)
-- Performante rendering van grote vragenlijsten
-- Fouttolerante breekpuntlogica die inconsistenties opvangt
-- Scheiding Razor Views ↔ API zonder `[FromBody]` afhankelijkheid
+- Validation of dynamic forms (server-side + client-side)
+- Performant rendering of large questionnaires
+- Fault-tolerant breakpoint logic that handles inconsistencies
+- Separation of Razor Views ↔ API without `[FromBody]` dependency
 
-## Resultaat
+## Result
 
-Een stabiele, uitbreidbare en gebruiksvriendelijke tool die organisaties helpt om burgerpanels efficiënt te organiseren en analyseren.
+A stable, extensible and user-friendly tool that helps organizations efficiently organize and analyze citizen panels.
