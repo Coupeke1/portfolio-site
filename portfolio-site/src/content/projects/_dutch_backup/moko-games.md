@@ -126,6 +126,6 @@ Example tree (package-by-feature):
 
 ### Screenshots
 
-![Store page](../../assets/moko/moko-store.png)  
-![Friends page](../../assets/moko/moko-friends.png)  
-![Tic Tac Toe](../../assets/moko/moko-game-view.png)
+![Store page](../../../assets/moko/moko-store.png)  
+![Friends page](../../../assets/moko/moko-friends.png)  
+![Tic Tac Toe](../../../assets/moko/moko-game-view.png)
