@@ -1,50 +1,190 @@
 ---
 import '../styles/global.css';
-import type {ImageMetadata} from 'astro';
+import type { ImageMetadata } from 'astro';
 import FallbackImage from '../assets/fish-feeder-header.png';
-import {SITE_TITLE} from '../consts';
+import {
+    SITE_TITLE,
+    SITE_DESCRIPTION,
+    SITE_DESCRIPTION_EN,
+    SITE_AUTHOR,
+    SITE_URL,
+    SITE_GITHUB,
+    SITE_LINKEDIN,
+    SITE_EMAIL,
+} from '../consts';
+import { getLocale, localizedPath } from '../i18n';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
     title: string;
-    description: string;
+    description?: string;
     image?: ImageMetadata;
+    type?: 'website' | 'article';
+    includePerson?: boolean;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const {
+    title,
+    description,
+    image = FallbackImage,
+    type = 'website',
+    includePerson,
+} = Astro.props;
 
-const {title, description, image = FallbackImage} = Astro.props;
+const locale = getLocale(Astro.currentLocale);
+const langTag = locale === 'nl' ? 'nl-BE' : 'en';
+
+const defaultDescription = locale === 'nl' ? SITE_DESCRIPTION : SITE_DESCRIPTION_EN;
+const finalDescription = description ?? defaultDescription;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const path = Astro.url.pathname;
+
+const nlPath = localizedPath(path, 'nl');
+const enPath = localizedPath(path, 'en');
+const nlURL = new URL(nlPath, Astro.site);
+const enURL = new URL(enPath, Astro.site);
+
+const ogImageURL = new URL(image.src, Astro.url);
+const isHome = path === '/' || path === '/en' || path === '/en/';
+
+const personJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: SITE_AUTHOR,
+    url: SITE_URL,
+    image: ogImageURL.toString(),
+    jobTitle:
+        locale === 'nl'
+            ? 'Full-Stack Developer in opleiding'
+            : 'Full-Stack Developer in training',
+    email: `mailto:${SITE_EMAIL}`,
+    address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Antwerpen',
+        addressCountry: 'BE',
+    },
+    alumniOf: {
+        '@type': 'EducationalOrganization',
+        name: 'Karel de Grote Hogeschool',
+        url: 'https://www.kdg.be/',
+    },
+    knowsAbout: [
+        'Software architecture',
+        'Domain-Driven Design',
+        'Microservices',
+        'TypeScript',
+        'Java',
+        '.NET',
+        'React',
+        'Astro',
+        'PostgreSQL',
+        'Docker',
+    ],
+    sameAs: [SITE_GITHUB, SITE_LINKEDIN],
+};
+
+const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_TITLE,
+    url: SITE_URL,
+    inLanguage: langTag,
+    author: { '@type': 'Person', name: SITE_AUTHOR },
+};
 ---
 
-<!-- Global Metadata -->
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
-<link rel="sitemap" href="/sitemap-index.xml"/>
+<!-- Global metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<meta name="author" content={SITE_AUTHOR} />
+
+<!-- Theme color (for browser UI) -->
+<meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0A0E14" media="(prefers-color-scheme: dark)" />
+
+<!-- Icons & manifest -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="apple-touch-icon" href="/favicon.svg" />
+
+<!-- Sitemap & RSS -->
+<link rel="sitemap" href="/sitemap-index.xml" />
 <link
-        rel="alternate"
-        type="application/rss+xml"
-        title={SITE_TITLE}
-        href={new URL('rss.xml', Astro.site)}
+    rel="alternate"
+    type="application/rss+xml"
+    title={SITE_TITLE}
+    href={new URL('rss.xml', Astro.site)}
 />
-<meta name="generator" content={Astro.generator}/>
 
-<link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin/>
-<link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin/>
+<!-- Fonts (Google Fonts — JetBrains Mono + Inter) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+/>
 
-<link rel="canonical" href={canonicalURL}/>
+<!-- Canonical + hreflang -->
+<link rel="canonical" href={canonicalURL} />
+<link rel="alternate" hreflang="nl" href={nlURL} />
+<link rel="alternate" hreflang="en" href={enURL} />
+<link rel="alternate" hreflang="x-default" href={nlURL} />
 
+<!-- Title & description -->
 <title>{title}</title>
-<meta name="title" content={title}/>
-<meta name="description" content={description}/>
+<meta name="title" content={title} />
+<meta name="description" content={finalDescription} />
 
-<meta property="og:type" content="website"/>
-<meta property="og:url" content={Astro.url}/>
-<meta property="og:title" content={title}/>
-<meta property="og:description" content={description}/>
-<meta property="og:image" content={new URL(image.src, Astro.url)}/>
+<!-- Open Graph -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={finalDescription} />
+<meta property="og:image" content={ogImageURL} />
+<meta property="og:site_name" content={SITE_TITLE} />
+<meta property="og:locale" content={langTag} />
+<meta property="og:locale:alternate" content={locale === 'nl' ? 'en' : 'nl-BE'} />
 
-<meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:url" content={Astro.url}/>
-<meta property="twitter:title" content={title}/>
-<meta property="twitter:description" content={description}/>
-<meta property="twitter:image" content={new URL(image.src, Astro.url)}/>
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={finalDescription} />
+<meta property="twitter:image" content={ogImageURL} />
+
+<!-- Pre-paint theme application to prevent FOUC -->
+<script is:inline>
+    (function () {
+        try {
+            const stored = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const effective = stored ?? (prefersDark ? 'dark' : 'light');
+            if (effective === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+        } catch (_) { /* localStorage unavailable, ignore */ }
+    })();
+</script>
+
+<!-- JSON-LD structured data -->
+<script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
+{(isHome || includePerson) && (
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+)}
+
+<!-- Astro view transitions — smooth client-side navigation for lang switch & nav links -->
+<ClientRouter />
+
+<!-- Re-apply theme after each view transition (in case prefers-color-scheme changed mid-session) -->
+<script is:inline>
+    document.addEventListener('astro:after-swap', function () {
+        try {
+            const stored = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const effective = stored ?? (prefersDark ? 'dark' : 'light');
+            document.documentElement.classList.toggle('dark', effective === 'dark');
+        } catch (_) { /* ignore */ }
+    });
+</script>

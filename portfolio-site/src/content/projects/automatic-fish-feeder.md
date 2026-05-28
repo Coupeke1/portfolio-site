@@ -18,6 +18,17 @@ features:
   - "Remote configuration via TCP"
 repoUrl: "https://github.com/Coupeke1/fish-feeder-micropython"
 year: 2025
+translations:
+  nl:
+    title: "Automatische visvoeder"
+    shortDescription: "Embedded MicroPython-systeem dat vissen automatisch voedt op ingestelde tijdstippen."
+    description: "Compact embedded project met ESP32, MicroPython, RTC-timing en servo-aansturing. Ontworpen om volledig autonoom te voeren met zowel handmatige als remote configuratie."
+    role: "Embedded & Firmware Development"
+    features:
+      - "Automatische voeding via realtime klok"
+      - "18 programmeerbare voedingstijden"
+      - "Handmatige feeding-knop met debouncing"
+      - "Remote configuratie via TCP"
 ---
 
 ## About the project

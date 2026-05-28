@@ -26,6 +26,18 @@ features:
 repoUrl: "https://github.com/Coupeke1/moko-games"
 year: 2025
 featured: true
+translations:
+  nl:
+    title: "Moko Games"
+    shortDescription: "DDD-gedreven microservicesplatform om digitale bordspellen te kopen, spelen en sociaal te delen."
+    description: "Vakproject (Integratieproject 3) gebouwd in cross-functionele teams. We ontwierpen en bouwden een DDD-microservicesplatform waar gebruikers digitale bordspellen kunnen kopen, spelen met vrienden (of AI), en sociale + chat-features in één platform gebruiken."
+    role: "Fullstack developer / architect"
+    features:
+      - "Winkel & bibliotheekbeheer"
+      - "Profielen, vrienden & sociale features"
+      - "Real-time lobby, chat & notificaties"
+      - "Multiplayer + AI-tegenstanders"
+      - "AI chatbot integratie"
 ---
 
 ## Project Context

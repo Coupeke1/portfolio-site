@@ -1,108 +1,152 @@
 ---
-import {Icon} from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
+import { useTranslations } from '../i18n';
 
-const {skills} = Astro.props;
+const { skills } = Astro.props;
+const t = useTranslations(Astro.currentLocale);
 
-// Combine all skills into a single flat array
 const allSkills = [...skills.backend, ...skills.frontend, ...skills.tools];
 
-// Brand colors
-const skillColors = {
-    Java: "#f80000",
-    "C#": "#512BD4",
-    ".NET": "#512BD4",
-    Kotlin: "#A97BFF",
-    Android: "#3DDC84",
-    "Jetpack Compose": "#4285F4",
-    Hilt: "#4285F4",
-    DataStore: "#00BCD4",
-    "Spring Boot": "#6DB33F",
-    PostgreSQL: "#336791",
-    Docker: "#2496ED",
-    HTML5: "#E34F26",
-    CSS3: "#1572B6",
-    JavaScript: "#F7DF1E",
-    TypeScript: "#3178C6",
-    React: "#61DAFB",
-    "Vue.js": "#42b883",
-    "Tailwind CSS": "#38BDF8",
-    SCSS: "#CC6699",
-    Git: "#F05032",
-    Astro: "#FF5D01",
-    JavaFX: "#f80000",
-    Cisco: "#1ba0d7",
-    "Raspberry Pi": "#C51A4A",
-    RabbitMQ: "#FF6600",
-    Keycloak: "#3C3C3C",
-    Neo4j: "#008CC1",
-    MicroPython: "#2B2B2B",
+const skillColors: Record<string, string> = {
+    Java: '#f80000',
+    'C#': '#512BD4',
+    '.NET': '#512BD4',
+    Kotlin: '#A97BFF',
+    Android: '#3DDC84',
+    'Jetpack Compose': '#4285F4',
+    Hilt: '#4285F4',
+    DataStore: '#00BCD4',
+    'Spring Boot': '#6DB33F',
+    PostgreSQL: '#336791',
+    Docker: '#2496ED',
+    HTML5: '#E34F26',
+    CSS3: '#1572B6',
+    JavaScript: '#F7DF1E',
+    TypeScript: '#3178C6',
+    React: '#61DAFB',
+    'Vue.js': '#42b883',
+    'Tailwind CSS': '#38BDF8',
+    SCSS: '#CC6699',
+    Git: '#F05032',
+    Astro: '#FF5D01',
+    JavaFX: '#f80000',
+    Cisco: '#1ba0d7',
+    'Raspberry Pi': '#C51A4A',
+    RabbitMQ: '#FF6600',
+    Keycloak: '#3C3C3C',
+    Neo4j: '#008CC1',
+    MicroPython: '#2B2B2B',
 };
 
-const skillIcons = {
-    Java: "simple-icons:oracle",
-    "C#": "simple-icons:csharp",
-    ".NET": "simple-icons:dotnet",
-    Kotlin: "simple-icons:kotlin",
-    Android: "simple-icons:android",
-    "Jetpack Compose": "simple-icons:jetpackcompose",
-    Hilt: "simple-icons:dagger",
-    DataStore: "simple-icons:google",
-    "Spring Boot": "simple-icons:springboot",
-    PostgreSQL: "simple-icons:postgresql",
-    Docker: "simple-icons:docker",
-    HTML5: "simple-icons:html5",
-    CSS3: "simple-icons:css3",
-    JavaScript: "simple-icons:javascript",
-    TypeScript: "simple-icons:typescript",
-    React: "simple-icons:react",
-    "Vue.js": "simple-icons:vuedotjs",
-    "Tailwind CSS": "simple-icons:tailwindcss",
-    SCSS: "simple-icons:sass",
-    Git: "simple-icons:git",
-    Astro: "simple-icons:astro",
-    JavaFX: "simple-icons:oracle",
-    Cisco: "simple-icons:cisco",
-    "Raspberry Pi": "simple-icons:raspberrypi",
-    RabbitMQ: "simple-icons:rabbitmq",
-    Keycloak: "simple-icons:keycloak",
-    Neo4j: "simple-icons:neo4j",
-    MicroPython: "simple-icons:microdotblog",
-
+const skillIcons: Record<string, string> = {
+    Java: 'simple-icons:oracle',
+    'C#': 'simple-icons:csharp',
+    '.NET': 'simple-icons:dotnet',
+    Kotlin: 'simple-icons:kotlin',
+    Android: 'simple-icons:android',
+    'Jetpack Compose': 'simple-icons:jetpackcompose',
+    Hilt: 'simple-icons:dagger',
+    DataStore: 'simple-icons:google',
+    'Spring Boot': 'simple-icons:springboot',
+    PostgreSQL: 'simple-icons:postgresql',
+    Docker: 'simple-icons:docker',
+    HTML5: 'simple-icons:html5',
+    CSS3: 'simple-icons:css3',
+    JavaScript: 'simple-icons:javascript',
+    TypeScript: 'simple-icons:typescript',
+    React: 'simple-icons:react',
+    'Vue.js': 'simple-icons:vuedotjs',
+    'Tailwind CSS': 'simple-icons:tailwindcss',
+    SCSS: 'simple-icons:sass',
+    Git: 'simple-icons:git',
+    Astro: 'simple-icons:astro',
+    JavaFX: 'simple-icons:oracle',
+    Cisco: 'simple-icons:cisco',
+    'Raspberry Pi': 'simple-icons:raspberrypi',
+    RabbitMQ: 'simple-icons:rabbitmq',
+    Keycloak: 'simple-icons:keycloak',
+    Neo4j: 'simple-icons:neo4j',
+    MicroPython: 'simple-icons:micropython',
 };
 
-// Slight speed tweak based on number of skills
-const speed = Math.max(40, allSkills.length * 3); // seconds
+const speed = Math.max(40, allSkills.length * 3);
 ---
-<div class="w-full overflow-hidden py-6 bg-[var(--color-surface)] border-y border-[var(--color-border)]">
-    <div
-            class="marquee-track flex whitespace-nowrap min-w-max"
-            style={`animation-duration: ${speed}s;`}
-    >
-        {/** Render list twice for seamless loop */}
-        {[...allSkills, ...allSkills].map(skill => (
-                <div class="flex items-center gap-3 mx-10">
-                    <Icon
-                            name={skillIcons[skill]}
-                            class="w-7 h-7"
-                            style={`color: ${skillColors[skill]};`}
-                    />
-                    <span class="text-[var(--color-text)] text-lg font-medium">{skill}</span>
-                </div>
+
+<section class="skills-strip" aria-label={t.skills.title}>
+    <div class="skills-strip__label">
+        <span class="skills-strip__key">const</span>{' '}
+        <span class="skills-strip__var">{t.skills.title}</span>{' '}
+        <span class="skills-strip__op">=</span>{' '}
+        <span class="skills-strip__bracket">[</span>
+    </div>
+
+    <div class="skills-strip__track" style={`animation-duration: ${speed}s;`}>
+        {[...allSkills, ...allSkills].map((skill: string) => (
+            <span class="skills-strip__item">
+                <Icon
+                    name={skillIcons[skill] ?? 'lucide:code'}
+                    class="skills-strip__icon"
+                    style={`color: ${skillColors[skill] ?? 'currentColor'};`}
+                />
+                <span class="skills-strip__name">"{skill}"</span>
+                <span class="skills-strip__comma">,</span>
+            </span>
         ))}
     </div>
-</div>
+
+    <div class="skills-strip__label">
+        <span class="skills-strip__bracket">];</span>
+    </div>
+</section>
 
 <style>
-    @keyframes marquee {
-        from {
-            transform: translateX(0);
-        }
-        to {
-            transform: translateX(-50%);
-        }
+    .skills-strip {
+        width: 100%;
+        padding: 1.25rem 0 1.5rem;
+        background: var(--color-surface);
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+        overflow: hidden;
     }
 
-    .marquee-track {
+    .skills-strip__label {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--color-text-muted);
+        padding: 0 1.5rem 0.5rem;
+        max-width: 80rem;
+        margin: 0 auto;
+    }
+
+    .skills-strip__key { color: var(--color-syntax-keyword); }
+    .skills-strip__var { color: var(--color-syntax-func); }
+    .skills-strip__op { color: var(--color-text-muted); }
+    .skills-strip__bracket { color: var(--color-syntax-comment); }
+
+    .skills-strip__track {
+        display: flex;
+        white-space: nowrap;
+        min-width: max-content;
         animation: marquee linear infinite;
     }
+
+    .skills-strip__track:hover { animation-play-state: paused; }
+
+    .skills-strip__item {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0 1.25rem;
+        font-family: var(--font-mono);
+        font-size: 0.95rem;
+    }
+
+    .skills-strip__icon {
+        width: 1.1rem;
+        height: 1.1rem;
+        flex-shrink: 0;
+    }
+
+    .skills-strip__name { color: var(--color-syntax-string); }
+    .skills-strip__comma { color: var(--color-text-faint); }
 </style>

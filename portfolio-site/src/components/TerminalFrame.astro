@@ -1,0 +1,54 @@
+---
+interface Props {
+    filename?: string;
+    lang?: string;
+    lineNumbers?: boolean;
+    padless?: boolean;
+    class?: string;
+}
+
+const {
+    filename,
+    lang,
+    lineNumbers = false,
+    padless = false,
+    class: className = '',
+} = Astro.props;
+---
+
+<div class:list={['terminal', className]}>
+    <div class="terminal-titlebar">
+        <div class="terminal-dots" aria-hidden="true">
+            <span class="terminal-dot terminal-dot--red"></span>
+            <span class="terminal-dot terminal-dot--yellow"></span>
+            <span class="terminal-dot terminal-dot--green"></span>
+        </div>
+        {filename && (
+            <span class="text-[var(--color-text)] font-medium truncate">
+                {filename}
+            </span>
+        )}
+        {lang && (
+            <span class="ml-auto text-[var(--color-text-faint)] uppercase tracking-wider text-[0.7rem]">
+                {lang}
+            </span>
+        )}
+    </div>
+
+    {lineNumbers ? (
+        <div class="terminal-lines">
+            <div class="terminal-lines__nums" aria-hidden="true">
+                <slot name="lineNumbers">{Array.from({ length: 10 }, (_, i) => (
+                    <div>{i + 1}</div>
+                ))}</slot>
+            </div>
+            <div class="terminal-lines__body">
+                <slot />
+            </div>
+        </div>
+    ) : (
+        <div class:list={['terminal-body', padless && 'terminal-body--padless']}>
+            <slot />
+        </div>
+    )}
+</div>

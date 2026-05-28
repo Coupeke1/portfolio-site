@@ -18,6 +18,17 @@ features:
 repoUrl: "https://github.com/Coupeke1/portfolio-site"
 liveUrl: "https://mathiasm.dev/"
 year: 2025
+translations:
+  nl:
+    title: "Persoonlijke portfolio"
+    shortDescription: "Mijn portfolio-website, gebouwd met Astro en TypeScript."
+    description: "Professionele portfolio-website: SSG met Astro, content in Markdown, Tailwind CSS, OpenGraph en sitemap, gehost op Cloudflare Pages."
+    role: "Frontend developer / design & content"
+    features:
+      - "SSG (Astro) + Markdown content"
+      - "Projectpagina's automatisch gegenereerd"
+      - "SEO, OpenGraph, sitemap"
+      - "Dark mode toggle, toegankelijk (WCAG 2.1)"
 ---
 
 ## About the project

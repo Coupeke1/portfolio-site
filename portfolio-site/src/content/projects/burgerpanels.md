@@ -19,6 +19,18 @@ features:
   - "Export & reporting"
 repoUrl: "https://github.com/Coupeke1/burgerpanels.org"
 year: 2024
+featured: true
+translations:
+  nl:
+    title: "BurgerPanels.org"
+    shortDescription: "Website die helpt met het organiseren van burgerpanels."
+    description: "BurgerPanels.org is een webapp voor organisaties om burgerpanels te organiseren, inclusief configureerbare vragenlijsten, breekpunt-antwoorden en suggesties."
+    role: "Fullstack developer / architect"
+    features:
+      - "Dynamische vragenlijsten (admin-configurable)"
+      - "Breekpuntlogica met suggesties"
+      - "Razor views + API endpoints (geen [FromBody])"
+      - "Export & rapportage"
 ---
 
 ## About the project

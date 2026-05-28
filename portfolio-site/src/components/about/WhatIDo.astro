@@ -1,65 +1,115 @@
 ---
-import {Icon} from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
+import TerminalFrame from '../TerminalFrame.astro';
+import { useTranslations } from '../../i18n';
+
+const t = useTranslations(Astro.currentLocale);
+
+const cards = [
+    { key: 'architecture', icon: 'lucide:boxes', filename: 'architecture.md' },
+    { key: 'framework',    icon: 'lucide:layers', filename: 'framework.md' },
+    { key: 'data',         icon: 'lucide:database', filename: 'data.md' },
+    { key: 'frontend',     icon: 'lucide:monitor', filename: 'frontend.md' },
+] as const;
 ---
 
-<div class="space-y-6 mb-8">
-    <h3 class="text-2xl font-semibold text-[var(--color-text)]">Wat ik doe</h3>
+<section class="what-i-do" aria-labelledby="what-i-do-title">
+    <h3 id="what-i-do-title" class="what-i-do__heading">
+        <span class="what-i-do__hash"># </span>{t.about.whatIDoTitle}
+    </h3>
 
-    <div class="grid grid-cols-1 gap-6">
-
-        <!-- Architecture -->
-        <div class="flex gap-4 p-6 rounded-xl bg-[var(--color-primary-100)] shadow-sm border border-[var(--color-border)]">
-            <Icon name="lucide:boxes" class="w-8 h-8 text-[var(--color-primary)]"/>
-            <div>
-                <h4 class="text-xl font-semibold mb-2 text-[var(--color-text)]">Software Architecture &
-                    Microservices</h4>
-                <ul class="list-disc ml-6 text-[var(--color-text-muted)] space-y-1">
-                    <li>DDD, bounded contexts & context maps</li>
-                    <li>Event-driven communicatie met RabbitMQ</li>
-                    <li>PostgreSQL, Neo4j, Keycloak, Docker</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Framework -->
-        <div class="flex gap-4 p-6 rounded-xl bg-[var(--color-primary-100)] shadow-sm border border-[var(--color-border)]">
-            <Icon name="lucide:layers" class="w-8 h-8 text-[var(--color-primary)]"/>
-            <div>
-                <h4 class="text-xl font-semibold mb-2 text-[var(--color-text)]">Framework Development (Reverb)</h4>
-                <ul class="list-disc ml-6 text-[var(--color-text-muted)] space-y-1">
-                    <li>Eigen Java-MVC framework</li>
-                    <li>Custom template engine met ANTLR</li>
-                    <li>Routing, controllers, DI, HTTP abstractions</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Data -->
-        <div class="flex gap-4 p-6 rounded-xl bg-[var(--color-primary-100)] shadow-sm border border-[var(--color-border)]">
-            <Icon name="lucide:database" class="w-8 h-8 text-[var(--color-primary)]"/>
-            <div>
-                <h4 class="text-xl font-semibold mb-2 text-[var(--color-text)]">Data Engineering & Analytics</h4>
-                <ul class="list-disc ml-6 text-[var(--color-text-muted)] space-y-1">
-                    <li>Spark/Delta Lake ETL pipeline</li>
-                    <li>Neo4j graph imports & Cypher-queries</li>
-                    <li>Dashboards & grote datasets</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Frontend -->
-        <div class="flex gap-4 p-6 rounded-xl bg-[var(--color-primary-100)] shadow-sm border border-[var(--color-border)]">
-            <Icon name="lucide:monitor" class="w-8 h-8 text-[var(--color-primary)]"/>
-            <div>
-                <h4 class="text-xl font-semibold mb-2 text-[var(--color-text)]">Front-End Engineering</h4>
-                <ul class="list-disc ml-6 text-[var(--color-text-muted)] space-y-1">
-                    <li>React + TypeScript domotica UI</li>
-                    <li>Zustand & React Query</li>
-                    <li>Custom UI design</li>
-                    <li>Portfolio in Astro + Tailwind</li>
-                </ul>
-            </div>
-        </div>
-
+    <div class="what-i-do__grid">
+        {cards.map(card => {
+            const content = t.about.cards[card.key];
+            return (
+                <TerminalFrame filename={card.filename} lang="md">
+                    <div class="what-i-do__card">
+                        <div class="what-i-do__card-head">
+                            <Icon name={card.icon} aria-hidden="true" />
+                            <h4>{content.title}</h4>
+                        </div>
+                        <ul class="what-i-do__list">
+                            {content.items.map(item => <li>{item}</li>)}
+                        </ul>
+                    </div>
+                </TerminalFrame>
+            );
+        })}
     </div>
-</div>
+</section>
+
+<style>
+    .what-i-do { margin-top: 2.5rem; }
+
+    .what-i-do__heading {
+        font-family: var(--font-mono);
+        font-size: 1.4rem;
+        color: var(--color-text);
+        margin: 0 0 1.25rem;
+    }
+
+    .what-i-do__hash {
+        color: var(--color-syntax-comment);
+        font-weight: 400;
+    }
+
+    .what-i-do__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+        .what-i-do__grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .what-i-do__card { font-family: var(--font-body); }
+
+    .what-i-do__card-head {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        margin-bottom: 0.65rem;
+        font-family: var(--font-mono);
+        color: var(--color-text);
+    }
+
+    .what-i-do__card-head svg {
+        width: 1.25rem;
+        height: 1.25rem;
+        color: var(--color-primary);
+    }
+
+    .what-i-do__card-head h4 {
+        font-family: var(--font-mono);
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .what-i-do__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .what-i-do__list li {
+        position: relative;
+        padding-left: 1.1rem;
+        font-size: 0.92rem;
+        color: var(--color-text-muted);
+        line-height: 1.55;
+    }
+
+    .what-i-do__list li::before {
+        content: '>';
+        position: absolute;
+        left: 0;
+        color: var(--color-primary);
+        font-family: var(--font-mono);
+        font-weight: 700;
+    }
+</style>

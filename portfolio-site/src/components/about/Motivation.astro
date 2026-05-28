@@ -1,9 +1,31 @@
-<div class="space-y-4">
-    <h3 class="text-2xl font-semibold text-[var(--color-text)]">Waarom ik dit doe</h3>
+---
+import { useTranslations } from '../../i18n';
+const t = useTranslations(Astro.currentLocale);
+---
 
-    <p class="text-lg text-[var(--color-text-muted)] leading-relaxed max-w-3xl">
-        Ik denk graag in systemen die logisch, schaalbaar en elegant zijn
-        zowel onder de motorkap als in de UI. Ik hou van projecten die technisch
-        uitdagend zijn en echte impact hebben.
-    </p>
+<div class="motivation">
+    <h3 class="motivation__heading">
+        <span class="motivation__hash"># </span>{t.about.motivationTitle}
+    </h3>
+    <p class="motivation__text">{t.about.motivationText}</p>
 </div>
+
+<style>
+    .motivation__heading {
+        font-family: var(--font-mono);
+        font-size: 1.4rem;
+        color: var(--color-text);
+        margin: 0 0 0.85rem;
+    }
+
+    .motivation__hash { color: var(--color-syntax-comment); font-weight: 400; }
+
+    .motivation__text {
+        font-family: var(--font-body);
+        font-size: 1.05rem;
+        color: var(--color-text-muted);
+        line-height: 1.65;
+        max-width: 48rem;
+        margin: 0;
+    }
+</style>

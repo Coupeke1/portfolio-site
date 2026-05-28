@@ -1,105 +1,167 @@
 ---
-import { Icon } from "astro-icon/components";
+import { Icon } from 'astro-icon/components';
+import TerminalFrame from './TerminalFrame.astro';
+import { useTranslations } from '../i18n';
+
 const { skills } = Astro.props;
+const t = useTranslations(Astro.currentLocale);
 
-const skillColors = {
-    "Java": "#f80000",
-    "C#": "#512BD4",
-    ".NET": "#512BD4",
-    "PostgreSQL": "#336791",
-    "Docker": "#2496ED",
-    "HTML5": "#E34F26",
-    "CSS3": "#1572B6",
-    "JavaScript": "#F7DF1E",
-    "TypeScript": "#3178C6",
-    "React": "#61DAFB",
-    "Vue.js": "#42b883",
-    "Tailwind CSS": "#38BDF8",
-    "SCSS": "#CC6699",
-    "Git": "#F05032",
-    "Astro": "#FF5D01",
-    "JavaFX": "#f80000",
-    "Cisco": "#1ba0d7",
-    "Raspberry Pi": "#C51A4A",
+const skillColors: Record<string, string> = {
+    Java: '#f80000',
+    'C#': '#512BD4',
+    '.NET': '#512BD4',
+    PostgreSQL: '#336791',
+    Docker: '#2496ED',
+    HTML5: '#E34F26',
+    CSS3: '#1572B6',
+    JavaScript: '#F7DF1E',
+    TypeScript: '#3178C6',
+    React: '#61DAFB',
+    'Vue.js': '#42b883',
+    'Tailwind CSS': '#38BDF8',
+    SCSS: '#CC6699',
+    Git: '#F05032',
+    Astro: '#FF5D01',
+    JavaFX: '#f80000',
+    Cisco: '#1ba0d7',
+    'Raspberry Pi': '#C51A4A',
 };
 
-const skillIcons = {
-    "Java": "simple-icons:oracle",
-    "C#": "simple-icons:csharp",
-    ".NET": "simple-icons:dotnet",
-    "PostgreSQL": "simple-icons:postgresql",
-    "Docker": "simple-icons:docker",
-    "HTML5": "simple-icons:html5",
-    "CSS3": "simple-icons:css3",
-    "JavaScript": "simple-icons:javascript",
-    "TypeScript": "simple-icons:typescript",
-    "React": "simple-icons:react",
-    "Vue.js": "simple-icons:vuedotjs",
-    "Tailwind CSS": "simple-icons:tailwindcss",
-    "SCSS": "simple-icons:sass",
-    "Git": "simple-icons:git",
-    "Astro": "simple-icons:astro",
-    "JavaFX": "simple-icons:oracle",
-    "Cisco": "simple-icons:cisco",
-    "Raspberry Pi": "simple-icons:raspberrypi",
+const skillIcons: Record<string, string> = {
+    Java: 'simple-icons:oracle',
+    'C#': 'simple-icons:csharp',
+    '.NET': 'simple-icons:dotnet',
+    PostgreSQL: 'simple-icons:postgresql',
+    Docker: 'simple-icons:docker',
+    HTML5: 'simple-icons:html5',
+    CSS3: 'simple-icons:css3',
+    JavaScript: 'simple-icons:javascript',
+    TypeScript: 'simple-icons:typescript',
+    React: 'simple-icons:react',
+    'Vue.js': 'simple-icons:vuedotjs',
+    'Tailwind CSS': 'simple-icons:tailwindcss',
+    SCSS: 'simple-icons:sass',
+    Git: 'simple-icons:git',
+    Astro: 'simple-icons:astro',
+    JavaFX: 'simple-icons:oracle',
+    Cisco: 'simple-icons:cisco',
+    'Raspberry Pi': 'simple-icons:raspberrypi',
 };
+
+const sections = [
+    { key: 'backend', label: t.about.skillSections.backend, icon: 'lucide:server', items: skills.backend },
+    { key: 'frontend', label: t.about.skillSections.frontend, icon: 'lucide:monitor', items: skills.frontend },
+    { key: 'tools', label: t.about.skillSections.tools, icon: 'lucide:settings', items: skills.tools },
+];
 ---
 
-<div class="space-y-6">
-    <h3 class="text-2xl font-semibold text-[var(--color-text)]">Technische Skills</h3>
+<section class="about-skills" aria-labelledby="about-skills-title">
+    <h3 id="about-skills-title" class="about-skills__heading">
+        <span class="about-skills__hash"># </span>{t.about.skillsTitle}
+    </h3>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-        <!-- Backend -->
-        <div class="p-6 rounded-xl bg-[var(--color-primary-100)] border border-[var(--color-border)] shadow-sm">
-            <div class="flex items-center gap-3 mb-4">
-                <Icon name="lucide:server" class="w-7 h-7 text-[var(--color-primary)]" />
-                <h4 class="text-xl font-semibold text-[var(--color-text)]">Backend Development</h4>
-            </div>
-
-            <ul class="space-y-2">
-                {skills.backend.map(skill => (
-                        <li class="flex items-center gap-2 text-[var(--color-text-muted)]">
-                            <Icon name={skillIcons[skill]} class="w-5 h-5" style={`color: ${skillColors[skill]};`} />
-                            {skill}
-                        </li>
-                ))}
-            </ul>
-        </div>
-
-        <!-- Frontend -->
-        <div class="p-6 rounded-xl bg-[var(--color-primary-100)] border border-[var(--color-border)] shadow-sm">
-            <div class="flex items-center gap-3 mb-4">
-                <Icon name="lucide:monitor" class="w-7 h-7 text-[var(--color-primary)]" />
-                <h4 class="text-xl font-semibold text-[var(--color-text)]">Frontend Development</h4>
-            </div>
-
-            <ul class="space-y-2">
-                {skills.frontend.map(skill => (
-                        <li class="flex items-center gap-2 text-[var(--color-text-muted)]">
-                            <Icon name={skillIcons[skill]} class="w-5 h-5" style={`color: ${skillColors[skill]};`} />
-                            {skill}
-                        </li>
-                ))}
-            </ul>
-        </div>
-
-        <!-- Tools -->
-        <div class="p-6 rounded-xl bg-[var(--color-primary-100)] border border-[var(--color-border)] shadow-sm">
-            <div class="flex items-center gap-3 mb-4">
-                <Icon name="lucide:settings" class="w-7 h-7 text-[var(--color-primary)]" />
-                <h4 class="text-xl font-semibold text-[var(--color-text)]">Tools & Platforms</h4>
-            </div>
-
-            <ul class="space-y-2">
-                {skills.tools.map(skill => (
-                        <li class="flex items-center gap-2 text-[var(--color-text-muted)]">
-                            <Icon name={skillIcons[skill]} class="w-5 h-5" style={`color: ${skillColors[skill]};`} />
-                            {skill}
-                        </li>
-                ))}
-            </ul>
-        </div>
-
+    <div class="about-skills__grid">
+        {sections.map(section => (
+            <TerminalFrame filename={`${section.key}.list`} lang="txt">
+                <div class="about-skills__panel">
+                    <div class="about-skills__panel-head">
+                        <Icon name={section.icon} class="about-skills__panel-icon" aria-hidden="true" />
+                        <h4>{section.label}</h4>
+                    </div>
+                    <ul class="about-skills__list">
+                        {section.items.map((skill: string) => (
+                            <li>
+                                <Icon
+                                    name={skillIcons[skill] ?? 'lucide:code'}
+                                    style={`color: ${skillColors[skill] ?? 'currentColor'};`}
+                                    aria-hidden="true"
+                                />
+                                <span>{skill}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </TerminalFrame>
+        ))}
     </div>
-</div>
+</section>
+
+<style>
+    .about-skills { margin-top: 2.5rem; }
+
+    .about-skills__heading {
+        font-family: var(--font-mono);
+        font-size: 1.4rem;
+        color: var(--color-text);
+        margin: 0 0 1.25rem;
+    }
+
+    .about-skills__hash {
+        color: var(--color-syntax-comment);
+        font-weight: 400;
+    }
+
+    .about-skills__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+        .about-skills__grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .about-skills__panel {
+        font-family: var(--font-mono);
+    }
+
+    .about-skills__panel-head {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 0.75rem;
+        color: var(--color-text);
+    }
+
+    .about-skills__panel-icon {
+        width: 1.15rem;
+        height: 1.15rem;
+        color: var(--color-primary);
+    }
+
+    .about-skills__panel-head h4 {
+        font-family: var(--font-mono);
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    .about-skills__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.45rem;
+    }
+
+    .about-skills__list li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.88rem;
+        color: var(--color-text);
+    }
+
+    .about-skills__list li::before {
+        content: '-';
+        color: var(--color-syntax-comment);
+        font-weight: 700;
+    }
+
+    .about-skills__list svg {
+        width: 1rem;
+        height: 1rem;
+        flex-shrink: 0;
+    }
+</style>

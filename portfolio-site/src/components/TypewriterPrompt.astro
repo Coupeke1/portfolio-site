@@ -1,0 +1,129 @@
+---
+interface Props {
+    prompt: string;
+    lines: readonly string[];
+}
+
+const { prompt, lines } = Astro.props;
+
+const a11yText = lines.join('. ');
+---
+
+<div data-typewriter class="font-mono text-base sm:text-lg leading-relaxed">
+    <span class="sr-only">{a11yText}</span>
+
+    <div class="text-[var(--color-text-muted)] mb-2" aria-hidden="true">
+        <span class="text-[var(--color-primary)] font-semibold">{prompt}</span>
+        <span data-typewriter-cursor></span>
+    </div>
+    <div class="tw-output space-y-1 mt-3" aria-hidden="true">
+        {lines.map((line, idx) => (
+            <span
+                class="tw-line text-[var(--color-text)]"
+                data-tw-line
+                data-tw-index={idx}
+                data-tw-text={line}
+            ></span>
+        ))}
+    </div>
+</div>
+
+<noscript>
+    <style>
+        .tw-line::before { content: attr(data-tw-text); }
+    </style>
+</noscript>
+
+<style>
+    .tw-output { display: flex; flex-direction: column; }
+    .tw-line {
+        display: block;
+        white-space: nowrap;
+        min-height: 1.5em;
+    }
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0,0,0,0);
+        white-space: nowrap;
+        border: 0;
+    }
+</style>
+
+<script>
+    type LineEl = HTMLElement;
+
+    function init(root: HTMLElement) {
+        if (root.dataset.twDone === 'true') return;
+        root.dataset.twDone = 'true';
+
+        const lines = Array.from(
+            root.querySelectorAll<LineEl>('[data-tw-line]')
+        );
+
+        const prefersReduce = window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+        ).matches;
+
+        if (prefersReduce) {
+            lines.forEach((el) => {
+                el.textContent = el.dataset.twText ?? '';
+            });
+            return;
+        }
+
+        let total = 0;
+        const charDelay = 28;
+        const lineGap = 220;
+
+        lines.forEach((el, lineIdx) => {
+            const text = el.dataset.twText ?? '';
+            const startAt = total + lineIdx * lineGap;
+
+            setTimeout(() => {
+                let i = 0;
+                const tick = () => {
+                    if (i <= text.length) {
+                        el.textContent = text.slice(0, i);
+                        i++;
+                        setTimeout(tick, charDelay);
+                    }
+                };
+                tick();
+            }, startAt);
+
+            total += text.length * charDelay;
+        });
+    }
+
+    function startWhenVisible(root: HTMLElement) {
+        if (root.dataset.twObserved === 'true') return;
+        root.dataset.twObserved = 'true';
+
+        const io = new IntersectionObserver(
+            (entries, obs) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        init(root);
+                        obs.disconnect();
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+        io.observe(root);
+    }
+
+    function setupAll() {
+        document
+            .querySelectorAll<HTMLElement>('[data-typewriter]')
+            .forEach(startWhenVisible);
+    }
+
+    setupAll();
+    document.addEventListener('astro:page-load', setupAll);
+</script>

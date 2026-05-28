@@ -1,29 +1,49 @@
 ---
-const {title, subtitle, description, primaryButton, secondaryButton} = Astro.props;
+import TerminalFrame from './TerminalFrame.astro';
+import TypewriterPrompt from './TypewriterPrompt.astro';
+import { useTranslations } from '../i18n';
+
+const t = useTranslations(Astro.currentLocale);
 ---
 
-<section class="text-center mb-16 sm:mb-24">
-    <div class="max-w-3xl mx-auto">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)]">
-            {title}
-        </h1>
-        <p class="text-xl sm:text-2xl md:text-3xl font-medium mb-6 text-[var(--color-primary)]">
-            {subtitle}
-        </p>
-        <p class="text-base sm:text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto leading-relaxed mb-8">
-            {description}
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={primaryButton.href}
-               class="px-6 py-3 rounded-lg font-semibold transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] hover:scale-105 text-center
-                      !bg-[#6B46C1] !text-white hover:!bg-[#5E3D9E] hover:shadow-lg hover:shadow-purple-200">
-                {primaryButton.text}
+<section class="hero">
+    <TerminalFrame filename="whoami.sh" lang="sh">
+        <TypewriterPrompt prompt={t.hero.prompt} lines={t.hero.lines} />
+
+        <p class="hero__intro">{t.hero.intro}</p>
+
+        <div class="hero__actions">
+            <a href={t.hero.ctaPrimaryHref} class="btn-terminal btn-terminal--solid">
+                <span aria-hidden="true">$</span> {t.hero.ctaPrimary}
             </a>
-            <a href={secondaryButton.href}
-               class="px-6 py-3 rounded-lg font-semibold !border-2 !border-[#6B46C1] !text-[#6B46C1]
-                      hover:!bg-[#F5F3FF] hover:!text-[#5E3D9E] transition-all duration-500 ease-[cubic-bezier(0.25,0.1,0.25,1)] hover:scale-105 text-center">
-                {secondaryButton.text}
+            <a href={t.hero.ctaSecondaryHref} class="btn-terminal">
+                <span aria-hidden="true">$</span> {t.hero.ctaSecondary}
             </a>
         </div>
-    </div>
+    </TerminalFrame>
 </section>
+
+<style>
+    .hero { margin-bottom: 3rem; }
+
+    .hero__intro {
+        font-family: var(--font-body);
+        color: var(--color-text-muted);
+        max-width: 38rem;
+        margin: 1.5rem 0;
+        line-height: 1.65;
+        font-size: 1rem;
+    }
+
+    .hero__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+        .hero { margin-bottom: 4.5rem; }
+        .hero__intro { font-size: 1.1rem; }
+    }
+</style>

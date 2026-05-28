@@ -1,32 +1,114 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import BaseHead from "../components/BaseHead.astro";
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BaseHead from '../components/BaseHead.astro';
+import SkipLink from '../components/SkipLink.astro';
+import Scanlines from '../components/Scanlines.astro';
+import { useTranslations, getLocale } from '../i18n';
 
-const {title, heroImage, description} = Astro.props;
+interface Props {
+    title: string;
+    description?: string;
+    heroImage?: any;
+}
+
+const { title, description, heroImage } = Astro.props;
+const t = useTranslations(Astro.currentLocale);
+const locale = getLocale(Astro.currentLocale);
+const lang = locale === 'nl' ? 'nl' : 'en';
 ---
 
-<html lang="en">
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
 <head>
-    <BaseHead title={title} description={description ?? "About Mathias Meeus"}/>
+    <BaseHead title={title} description={description ?? t.meta.about.description} includePerson />
 </head>
 
-<body class="bg-[var(--color-bg)] text-[var(--color-text)]">
-<Header/>
+<body>
+<SkipLink />
+<Scanlines />
+<Header />
 
-<section class="w-full mb-10 sm:mb-12">
-    <div class="max-w-6xl mx-auto rounded-2xl overflow-hidden shadow-lg bg-[var(--color-surface)]"
-         style="border: 1px solid var(--color-border);">
+<section class="about-hero" aria-hidden={heroImage ? undefined : 'true'}>
+    <div class="about-hero__inner">
+        <div class="about-hero__bar">
+            <span class="about-hero__dot about-hero__dot--red"></span>
+            <span class="about-hero__dot about-hero__dot--yellow"></span>
+            <span class="about-hero__dot about-hero__dot--green"></span>
+            <span class="about-hero__filename">{t.about.heroTitle}</span>
+        </div>
         {heroImage && (
-                <img src={heroImage.src} alt={title} class="w-full h-[260px] sm:h-[340px] md:h-[380px] object-cover"/>
+            <img src={heroImage.src} alt="" class="about-hero__img" loading="eager" />
         )}
     </div>
 </section>
 
-<main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
-    <slot/>
+<main id="main" tabindex="-1" class="about-main">
+    <slot />
 </main>
 
-<Footer/>
+<Footer />
 </body>
 </html>
+
+<style>
+    .about-hero {
+        width: 100%;
+        padding: 1.5rem 1rem 0;
+    }
+
+    .about-hero__inner {
+        max-width: 80rem;
+        margin: 0 auto;
+        background: var(--color-surface);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-md);
+        overflow: hidden;
+    }
+
+    .about-hero__bar {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 0.9rem;
+        background: var(--color-surface-2);
+        border-bottom: 1px solid var(--color-border);
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--color-text-muted);
+    }
+
+    .about-hero__dot {
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 9999px;
+    }
+
+    .about-hero__dot--red    { background: #ef4444; }
+    .about-hero__dot--yellow { background: #eab308; }
+    .about-hero__dot--green  { background: #22c55e; }
+
+    .about-hero__filename {
+        margin-left: 0.5rem;
+        color: var(--color-text);
+        font-weight: 500;
+    }
+
+    .about-hero__img {
+        width: 100%;
+        height: clamp(180px, 28vw, 320px);
+        object-fit: cover;
+        display: block;
+    }
+
+    .about-main {
+        max-width: 64rem;
+        margin: 2rem auto 4rem;
+        padding: 0 1rem;
+    }
+
+    @media (min-width: 768px) {
+        .about-hero { padding: 2rem 1.5rem 0; }
+        .about-main { padding: 0 1.5rem; }
+    }
+</style>

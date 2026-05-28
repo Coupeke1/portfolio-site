@@ -18,6 +18,16 @@ features:
   - "Own database schema per service"
 repoUrl: "https://github.com/Coupeke1/keep-dishes-going"
 year: 2025
+translations:
+  nl:
+    title: "Keep Dishes Going"
+    shortDescription: "DDD-gedreven microservicesplatform voor restaurants, bestellingen en leveringen."
+    description: "Distributiesysteem met autonome services voor Restaurant, Order en Delivery, gekoppeld via RabbitMQ-events en per-service databanken."
+    role: "Fullstack Developer / Architect"
+    features:
+      - "Gescheiden bounded contexts"
+      - "Event-driven integratie"
+      - "Eigen databank-schema per service"
 ---
 
 ## About the project

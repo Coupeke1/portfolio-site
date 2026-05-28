@@ -24,6 +24,19 @@ features:
   - "High-performance UI with Zustand + React Query"
 repoUrl: "https://github.com/Coupeke1/domotica-app"
 year: 2025
+featured: true
+translations:
+  nl:
+    title: "Domotica Control Center"
+    shortDescription: "Slimme woningbeheerapp met scenes, live controls, floorplan en real-time logging."
+    description: "Een moderne domotica-interface gebouwd in React + TypeScript waarmee gebruikers hun slimme woning beheren via dynamische scenes, directe controls, een visuele floorplan-weergave en real-time logging."
+    role: "Fullstack developer / architect"
+    features:
+      - "Scene-builder met triggers en acties"
+      - "Live device controls"
+      - "Visuele floorplan beheerweergave"
+      - "Real-time activity & event logging"
+      - "Zeer performante UI met Zustand + React Query"
 ---
 
 ## About the project

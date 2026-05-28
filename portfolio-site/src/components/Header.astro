@@ -1,26 +1,125 @@
 ---
-import {SITE_TITLE} from '../consts';
 import HeaderLink from './HeaderLink.astro';
+import ThemeToggle from './ThemeToggle.astro';
+import LangSwitcher from './LangSwitcher.astro';
+import { useTranslations } from '../i18n';
+
+const t = useTranslations(Astro.currentLocale);
 ---
 
-<script>
-    import setupHeader from '../lib/header.ts';
+<div class="header-sentinel" aria-hidden="true"></div>
 
-    setupHeader();
-</script>
+<header id="main-header" class="site-header">
+    <div class="site-header__inner">
+        <a href="/" class="site-header__brand" aria-label="Mathias Meeus">
+            <span class="site-header__prompt">mathias@meeus</span>
+            <span class="site-header__sep">:</span>
+            <span class="site-header__path">~</span>
+            <span class="site-header__cursor" aria-hidden="true">$</span>
+        </a>
 
-<header
-        id="main-header"
-        class="sticky top-0 z-50 flex items-center justify-between h-16 mx-auto px-4 w-full max-w-none
-         bg-transparent transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] overflow-hidden"
->
-    <a href="/" class="text-lg font-bold" style="color: var(--color-primary);">
-        {SITE_TITLE}
-    </a>
+        <nav class="site-header__nav" aria-label="Primary">
+            <HeaderLink href="/" label={t.nav.home} />
+            <HeaderLink href="/projects" label={t.nav.projects} />
+            <HeaderLink href="/about" label={t.nav.about} />
+        </nav>
 
-    <nav class="flex items-center space-x-1">
-        <HeaderLink href="/">Home</HeaderLink>
-        <HeaderLink href="/projects">Projects</HeaderLink>
-        <HeaderLink href="/about">About</HeaderLink>
-    </nav>
+        <div class="site-header__actions">
+            <LangSwitcher />
+            <ThemeToggle />
+        </div>
+    </div>
 </header>
+
+<style>
+    .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: color-mix(in srgb, var(--color-bg) 92%, transparent);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid transparent;
+        transition: border-color var(--motion-base) var(--ease-out),
+                    background-color var(--motion-base) var(--ease-out);
+    }
+
+    .site-header[data-scrolled="true"] {
+        border-bottom-color: var(--color-border);
+    }
+
+    .site-header__inner {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        max-width: 80rem;
+        margin: 0 auto;
+        padding: 0.65rem 1rem;
+    }
+
+    .site-header__brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.05rem;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--color-text-muted);
+        padding: 0.3rem 0.5rem;
+        border-radius: var(--radius-md);
+        transition: color var(--motion-fast) var(--ease-out);
+    }
+
+    .site-header__brand:hover { color: var(--color-primary); }
+
+    .site-header__prompt { color: var(--color-primary); }
+    .site-header__sep { color: var(--color-text-faint); }
+    .site-header__path { color: var(--color-accent); }
+    .site-header__cursor {
+        color: var(--color-primary);
+        margin-left: 0.35rem;
+        font-weight: 700;
+    }
+
+    .site-header__nav {
+        display: flex;
+        align-items: center;
+        gap: 0.2rem;
+        margin: 0 auto;
+    }
+
+    .site-header__actions {
+        display: flex;
+        align-items: center;
+        gap: 0.45rem;
+    }
+
+    @media (max-width: 640px) {
+        .site-header__inner { padding: 0.5rem 0.6rem; gap: 0.5rem; }
+        .site-header__nav { gap: 0; }
+        .site-header__brand .site-header__path { display: none; }
+    }
+</style>
+
+<script>
+    function setupHeaderScrollState() {
+        const sentinel = document.querySelector<HTMLElement>('.header-sentinel');
+        const header = document.getElementById('main-header');
+        if (!sentinel || !header) return;
+
+        const io = new IntersectionObserver(
+            ([entry]) => {
+                header.setAttribute(
+                    'data-scrolled',
+                    String(!entry.isIntersecting)
+                );
+            },
+            { rootMargin: '-1px 0px 0px 0px', threshold: [1] }
+        );
+        io.observe(sentinel);
+    }
+
+    setupHeaderScrollState();
+    document.addEventListener('astro:page-load', setupHeaderScrollState);
+</script>

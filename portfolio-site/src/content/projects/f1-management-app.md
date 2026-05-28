@@ -22,6 +22,19 @@ features:
   - "Team and driver management with dialogs"
 repoUrl: "https://github.com/Coupeke1/android-F1-project"
 year: 2024
+translations:
+  nl:
+    title: "F1 Management App"
+    shortDescription: "Android-app voor het beheren van Formule 1 teams en drivers."
+    description: "Moderne Android-app gebouwd met Jetpack Compose, MVVM, Hilt, DataStore en een eigen API. Gebruikers kunnen teams en drivers bekijken, aanmaken, bewerken en verwijderen."
+    role: "Android developer"
+    features:
+      - "CRUD voor teams en drivers"
+      - "MVVM-architectuur met Repository-laag"
+      - "Hilt dependency injection"
+      - "Compose UI + responsive layouts"
+      - "Settings via DataStore (auto-landscape, sponsors toggle)"
+      - "Team- en driver-management met dialogs"
 ---
 
 ## About the project

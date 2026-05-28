@@ -1,0 +1,53 @@
+---
+import { getLocale, localizedPath, useTranslations } from '../i18n';
+
+const current = getLocale(Astro.currentLocale);
+const target = current === 'nl' ? 'en' : 'nl';
+const t = useTranslations(Astro.currentLocale);
+
+const path = Astro.url.pathname;
+const targetHref = localizedPath(path, target);
+---
+
+<a
+    href={targetHref}
+    class="lang-switch"
+    hreflang={target}
+    aria-label={t.a11y.toggleLanguage}
+    title={t.a11y.toggleLanguage}
+>
+    <span class:list={['lang-switch__opt', current === 'nl' && 'lang-switch__opt--active']}>nl</span>
+    <span class="lang-switch__sep" aria-hidden="true">/</span>
+    <span class:list={['lang-switch__opt', current === 'en' && 'lang-switch__opt--active']}>en</span>
+</a>
+
+<style>
+    .lang-switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.4rem 0.65rem;
+        height: 2.25rem;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--color-border);
+        background: var(--color-surface);
+        color: var(--color-text-muted);
+        transition: border-color var(--motion-fast) var(--ease-out),
+                    color var(--motion-fast) var(--ease-out);
+    }
+
+    .lang-switch:hover { border-color: var(--color-primary); }
+
+    .lang-switch__opt {
+        color: var(--color-text-muted);
+        transition: color var(--motion-fast) var(--ease-out);
+    }
+
+    .lang-switch__opt--active { color: var(--color-primary); }
+
+    .lang-switch__sep { color: var(--color-text-faint); }
+</style>

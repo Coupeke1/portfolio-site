@@ -1,0 +1,104 @@
+---
+import { useTranslations } from '../i18n';
+
+const t = useTranslations(Astro.currentLocale);
+---
+
+<button
+    id="theme-toggle"
+    type="button"
+    class="theme-toggle"
+    aria-label={t.a11y.toggleTheme}
+    title={t.a11y.toggleTheme}
+>
+    <span class="sr-only">{t.a11y.toggleTheme}</span>
+
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+    </svg>
+
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+    </svg>
+
+    <svg class="icon-system" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="4" width="18" height="12" rx="2" />
+        <path d="M8 20h8M12 16v4" />
+    </svg>
+</button>
+
+<style>
+    .theme-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--color-border);
+        background: var(--color-surface);
+        color: var(--color-text-muted);
+        cursor: pointer;
+        transition: color var(--motion-fast) var(--ease-out),
+                    border-color var(--motion-fast) var(--ease-out),
+                    background-color var(--motion-fast) var(--ease-out);
+    }
+
+    .theme-toggle:hover {
+        color: var(--color-primary);
+        border-color: var(--color-primary);
+    }
+
+    .theme-toggle svg {
+        width: 1.05rem;
+        height: 1.05rem;
+        display: none;
+    }
+
+    /* default visibility: when no explicit theme, show "system" */
+    .theme-toggle[data-theme="light"] .icon-sun  { display: block; }
+    .theme-toggle[data-theme="dark"]  .icon-moon { display: block; }
+    .theme-toggle[data-theme="system"] .icon-system { display: block; }
+</style>
+
+<script>
+    type ThemeState = 'system' | 'light' | 'dark';
+    const STATES: ThemeState[] = ['system', 'light', 'dark'];
+
+    function read(): ThemeState {
+        return ((localStorage.getItem('theme') as ThemeState | null) ?? 'system');
+    }
+
+    function apply(state: ThemeState, btn: HTMLButtonElement) {
+        const sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const effective = state === 'system' ? (sysDark ? 'dark' : 'light') : state;
+        document.documentElement.classList.toggle('dark', effective === 'dark');
+        btn.setAttribute('data-theme', state);
+        btn.setAttribute('aria-pressed', String(state !== 'system'));
+    }
+
+    function bindThemeToggle() {
+        const btn = document.getElementById('theme-toggle') as HTMLButtonElement | null;
+        if (!btn) return;
+        apply(read(), btn);
+        if (btn.dataset.bound === 'true') return;
+        btn.dataset.bound = 'true';
+        btn.addEventListener('click', () => {
+            const cur = read();
+            const next = STATES[(STATES.indexOf(cur) + 1) % STATES.length];
+            if (next === 'system') localStorage.removeItem('theme');
+            else localStorage.setItem('theme', next);
+            apply(next, btn);
+        });
+    }
+
+    bindThemeToggle();
+    document.addEventListener('astro:page-load', bindThemeToggle);
+
+    // System preference change — re-apply only if state is "system"
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        const btn = document.getElementById('theme-toggle') as HTMLButtonElement | null;
+        if (btn && read() === 'system') apply('system', btn);
+    });
+</script>

@@ -1,0 +1,19 @@
+{
+  "name": "Mathias Meeus · Full-Stack Developer",
+  "short_name": "Mathias Meeus",
+  "description": "Portfolio of Mathias Meeus — full-stack developer in training at KdG (Antwerp).",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0A0E14",
+  "theme_color": "#0A0E14",
+  "lang": "nl-BE",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
