@@ -96,7 +96,7 @@ const t = useTranslations(Astro.currentLocale);
     bindThemeToggle();
     document.addEventListener('astro:page-load', bindThemeToggle);
 
-    // System preference change — re-apply only if state is "system"
+    // System preference change - re-apply only if state is "system"
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
         const btn = document.getElementById('theme-toggle') as HTMLButtonElement | null;
         if (btn && read() === 'system') apply('system', btn);

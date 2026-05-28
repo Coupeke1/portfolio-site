@@ -69,7 +69,7 @@ export const nl = {
         motivationTitle: 'waarom ik dit doe',
         motivationText:
             'Ik denk graag in systemen die logisch, schaalbaar en elegant zijn ' +
-            '— zowel onder de motorkap als in de UI. Ik hou van projecten die ' +
+            '- zowel onder de motorkap als in de UI. Ik hou van projecten die ' +
             'technisch uitdagend zijn en echte impact hebben.',
         skillsTitle: 'technische skills',
         cards: {
@@ -140,17 +140,17 @@ export const nl = {
         home: {
             title: 'Mathias Meeus · Full-Stack Developer',
             description:
-                'Portfolio van Mathias Meeus — derdejaars Toegepaste Informatica student aan KdG (Antwerpen). DDD, microservices, full-stack TypeScript en Java.',
+                'Portfolio van Mathias Meeus - derdejaars Toegepaste Informatica student aan KdG (Antwerpen). DDD, microservices, full-stack TypeScript en Java.',
         },
         about: {
             title: 'Over mij · Mathias Meeus',
             description:
-                'Wie is Mathias Meeus? Software-architectuur, DDD, full-stack engineering en data engineering — een student-developer in Antwerpen.',
+                'Wie is Mathias Meeus? Software-architectuur, DDD, full-stack engineering en data engineering - een student-developer in Antwerpen.',
         },
         projects: {
             title: 'Projecten · Mathias Meeus',
             description:
-                'Selectie van projecten van Mathias Meeus — burgerpanels, domotica, microservices platforms, Android apps en meer.',
+                'Selectie van projecten van Mathias Meeus - burgerpanels, domotica, microservices platforms, Android apps en meer.',
         },
     },
 } as const;

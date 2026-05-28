@@ -63,5 +63,5 @@ De app is volledig gebouwd in **React + TypeScript**, met een sterke focus op **
 ## Resultaat
 
 Een **professionele**, **schaalbare** en **snelle domotica-interface** die in één platform alle functionaliteit aanbiedt
-om een slimme woning volledig te beheren — van dagelijkse bediening tot geavanceerde automatisatie.
+om een slimme woning volledig te beheren - van dagelijkse bediening tot geavanceerde automatisatie.
 

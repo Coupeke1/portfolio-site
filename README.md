@@ -15,7 +15,7 @@ Check it out live: [https://MathiasM.dev](https://coupeke1.dev)
 
 ## 🛠 Tech Stack
 
-- **Astro** – Fast modern static site generator
-- **Tailwind CSS** – Utility-first CSS framework
-- **Deployment** – Via [Cloudflare](https://www.cloudflare.com/)
+- **Astro** - Fast modern static site generator
+- **Tailwind CSS** - Utility-first CSS framework
+- **Deployment** - Via [Cloudflare](https://www.cloudflare.com/)
 

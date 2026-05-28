@@ -61,5 +61,5 @@ netwerkcommunicatie**.
 
 ## Resultaat
 
-Een autonoom, betrouwbaar en eenvoudig configureerbaar systeem dat voedingstijden nauwkeurig uitvoert — ideaal als
+Een autonoom, betrouwbaar en eenvoudig configureerbaar systeem dat voedingstijden nauwkeurig uitvoert - ideaal als
 demonstratie van **firmware-ontwikkeling**, **low-level hardware**, en **embedded architectuur**.

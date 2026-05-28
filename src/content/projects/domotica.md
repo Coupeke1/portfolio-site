@@ -75,4 +75,4 @@ UI components**.
 ## Result
 
 A **professional**, **scalable** and **fast home automation interface** that offers all functionality in one platform to
-fully manage a smart home — from daily operation to advanced automation.
+fully manage a smart home - from daily operation to advanced automation.

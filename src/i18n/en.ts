@@ -71,7 +71,7 @@ export const en: Dict = {
         motivationTitle: 'why I do this',
         motivationText:
             'I like thinking in systems that are logical, scalable and elegant ' +
-            '— under the hood as much as in the UI. I gravitate towards projects ' +
+            '- under the hood as much as in the UI. I gravitate towards projects ' +
             'that are technically challenging and have real impact.',
         skillsTitle: 'technical skills',
         cards: {
@@ -142,17 +142,17 @@ export const en: Dict = {
         home: {
             title: 'Mathias Meeus · Full-Stack Developer',
             description:
-                'Portfolio of Mathias Meeus — third-year Applied Informatics student at KdG (Antwerp). DDD, microservices, full-stack TypeScript and Java.',
+                'Portfolio of Mathias Meeus - third-year Applied Informatics student at KdG (Antwerp). DDD, microservices, full-stack TypeScript and Java.',
         },
         about: {
             title: 'About · Mathias Meeus',
             description:
-                'Who is Mathias Meeus? Software architecture, DDD, full-stack and data engineering — a student-developer in Antwerp.',
+                'Who is Mathias Meeus? Software architecture, DDD, full-stack and data engineering - a student-developer in Antwerp.',
         },
         projects: {
             title: 'Projects · Mathias Meeus',
             description:
-                'Selection of projects by Mathias Meeus — citizen panels, smart-home dashboards, microservices platforms, Android apps and more.',
+                'Selection of projects by Mathias Meeus - citizen panels, smart-home dashboards, microservices platforms, Android apps and more.',
         },
     },
 };

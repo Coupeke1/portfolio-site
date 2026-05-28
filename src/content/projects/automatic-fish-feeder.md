@@ -71,5 +71,5 @@ network communication**.
 
 ## Result
 
-An autonomous, reliable and easily configurable system that precisely executes feeding times — ideal as a demonstration
+An autonomous, reliable and easily configurable system that precisely executes feeding times - ideal as a demonstration
 of **firmware development**, **low-level hardware**, and **embedded architecture**.
