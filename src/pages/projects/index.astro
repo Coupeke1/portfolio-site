@@ -65,6 +65,7 @@ const projects = (await getCollection('projects')).sort(
         font-family: var(--font-mono);
         font-size: 0.85rem;
         margin-bottom: 1rem;
+        overflow-wrap: anywhere;
     }
 
     .projects-main__user { color: var(--color-primary); font-weight: 600; }
@@ -74,7 +75,7 @@ const projects = (await getCollection('projects')).sort(
 
     .projects-main__title {
         font-family: var(--font-mono);
-        font-size: 2rem;
+        font-size: clamp(1.4rem, 6vw, 2rem);
         font-weight: 700;
         color: var(--color-text);
         margin: 0 0 0.5rem;
@@ -110,5 +111,12 @@ const projects = (await getCollection('projects')).sort(
 
     @media (min-width: 1024px) {
         .projects-main__grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    @media (max-width: 480px) {
+        .projects-main { padding: 0 0.75rem; margin: 1.5rem auto 3rem; }
+        .projects-main__intro { margin-bottom: 1.5rem; }
+        .projects-main__lede { font-size: 0.95rem; }
+        .projects-main__grid { gap: 1rem; }
     }
 </style>
