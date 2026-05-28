@@ -1,7 +1,6 @@
 ---
 import AboutLayout from '../../layouts/AboutLayout.astro';
 import AboutSkills from '../../components/AboutSkills.astro';
-import AboutHeroImage from '../../assets/blog-placeholder-about.jpg';
 import Intro from '../../components/about/Intro.astro';
 import WhatIDo from '../../components/about/WhatIDo.astro';
 import Strengths from '../../components/about/Strengths.astro';
@@ -18,7 +17,7 @@ const skills = {
 };
 ---
 
-<AboutLayout title={t.meta.about.title} description={t.meta.about.description} heroImage={AboutHeroImage}>
+<AboutLayout title={t.meta.about.title} description={t.meta.about.description}>
     <SectionCard>
         <Intro />
     </SectionCard>
