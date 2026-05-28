@@ -55,5 +55,13 @@ export default defineConfig({
         plugins: [tailwindcss()],
     },
 
+    // NOTE: Astro 5.12.x has no global default for image `format` or `quality`.
+    // Set `format="avif"` (or `format={['avif', 'webp']}`) and `quality={78}` per
+    // `<Image>` to get modern formats. Sharp is wired here explicitly so the
+    // service entrypoint is unambiguous across deploy environments.
+    image: {
+        service: { entrypoint: 'astro/assets/services/sharp' },
+    },
+
     adapter: cloudflare()
 });
