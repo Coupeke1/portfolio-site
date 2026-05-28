@@ -14,6 +14,7 @@ export const en: Dict = {
         themeLight: 'Light',
         themeDark: 'Dark',
         themeSystem: 'System',
+        openMenu: 'Open menu',
     },
     hero: {
         prompt: '$ whoami',

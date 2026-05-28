@@ -12,6 +12,7 @@ export const nl = {
         themeLight: 'Licht',
         themeDark: 'Donker',
         themeSystem: 'Systeem',
+        openMenu: 'Open menu',
     },
     hero: {
         prompt: '$ whoami',
