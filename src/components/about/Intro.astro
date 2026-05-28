@@ -115,6 +115,8 @@ const t = useTranslations(Astro.currentLocale);
         display: inline-flex;
         gap: 0.4rem;
         align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .about-intro__caption-comment {
@@ -132,7 +134,7 @@ const t = useTranslations(Astro.currentLocale);
 
     .about-intro__title {
         font-family: var(--font-mono);
-        font-size: 1.4rem;
+        font-size: clamp(1.15rem, 4vw, 1.65rem);
         font-weight: 700;
         color: var(--color-text);
         margin: 0 0 0.85rem;
@@ -153,8 +155,10 @@ const t = useTranslations(Astro.currentLocale);
         margin: 0;
     }
 
-    @media (min-width: 640px) {
-        .about-intro__title { font-size: 1.65rem; }
+    @media (max-width: 480px) {
+        .about-intro__avatar-frame { width: 140px; height: 140px; }
+        .about-intro__text { font-size: 0.98rem; line-height: 1.6; }
+        .about-intro { gap: 1.25rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
