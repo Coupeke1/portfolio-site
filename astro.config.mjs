@@ -12,7 +12,8 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://mathiasmeeus.dev',
+    site: 'https://mathiasm.dev',
+    output: 'static',
 
     i18n: {
         defaultLocale: 'nl',
