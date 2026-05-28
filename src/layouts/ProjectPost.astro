@@ -86,8 +86,8 @@ const creativeWork = {
                 <div class="project-detail__hero">
                     <Image
                         src={heroImage}
-                        width={1200}
-                        height={600}
+                        widths={[480, 960, 1440]}
+                        sizes="(min-width: 900px) 60vw, 100vw"
                         alt={tTitle}
                         class="project-detail__hero-img"
                         loading="eager"
@@ -217,8 +217,14 @@ const creativeWork = {
     }
 
     .project-detail__hero {
-        margin: -1.25rem -1.5rem 1.25rem;
+        margin: 0 0 1.25rem 0;
         border-bottom: 1px solid var(--color-border);
+    }
+
+    @media (min-width: 640px) {
+        .project-detail__hero {
+            margin: -1.25rem -1.5rem 1.25rem;
+        }
     }
 
     .project-detail__hero-img {
@@ -226,7 +232,12 @@ const creativeWork = {
         height: auto;
         display: block;
         object-fit: cover;
+        aspect-ratio: 2 / 1;
         max-height: 360px;
+    }
+
+    @media (max-width: 639px) {
+        .project-detail__hero-img { max-height: none; aspect-ratio: 16 / 9; }
     }
 
     .project-detail__meta {
@@ -247,7 +258,7 @@ const creativeWork = {
 
     .project-detail__title {
         font-family: var(--font-mono);
-        font-size: 1.85rem;
+        font-size: clamp(1.4rem, 5vw, 1.85rem);
         font-weight: 700;
         color: var(--color-text);
         margin: 0 0 0.65rem;
@@ -273,7 +284,20 @@ const creativeWork = {
     }
 
     .project-detail__main { display: flex; flex-direction: column; gap: 1.25rem; }
-    .project-detail__sidebar { display: flex; flex-direction: column; gap: 1.25rem; position: sticky; top: 5rem; align-self: start; }
+
+    .project-detail__sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    @media (min-width: 900px) {
+        .project-detail__sidebar {
+            position: sticky;
+            top: 5rem;
+            align-self: start;
+        }
+    }
 
     .project-detail__content,
     .project-detail__panel {
@@ -364,5 +388,13 @@ const creativeWork = {
         color: var(--color-text);
         font-weight: 600;
         margin: 0;
+    }
+
+    @media (max-width: 480px) {
+        .project-detail { padding: 0 0.75rem; margin: 1.5rem auto 2.5rem; }
+        .project-detail__content,
+        .project-detail__panel { padding: 1rem 1.1rem; }
+        .project-detail__lede { font-size: 0.98rem; }
+        .project-detail__grid { gap: 1.25rem; }
     }
 </style>
