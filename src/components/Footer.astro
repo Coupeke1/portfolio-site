@@ -124,6 +124,8 @@ const t = useTranslations(Astro.currentLocale);
     .site-footer__address a {
         color: var(--color-accent);
         text-decoration: none;
+        word-break: break-word;
+        overflow-wrap: anywhere;
     }
 
     .site-footer__address a:hover { text-decoration: underline; }
@@ -164,4 +166,30 @@ const t = useTranslations(Astro.currentLocale);
     }
 
     .site-footer__comment { color: var(--color-syntax-comment); }
+
+    @media (max-width: 767px) {
+        .site-footer__inner {
+            padding: 2rem 1rem 1.25rem;
+        }
+    }
+
+    @media (max-width: 479px) {
+        .site-footer__inner {
+            padding: 1.75rem 0.85rem 1.25rem;
+        }
+
+        .site-footer__heading {
+            margin-bottom: 0.5rem;
+        }
+
+        .site-footer__socials {
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .site-footer__socials a {
+            width: 2.75rem;
+            height: 2.75rem;
+        }
+    }
 </style>
