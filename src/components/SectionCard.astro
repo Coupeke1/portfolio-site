@@ -19,4 +19,8 @@ const { class: className = '' } = Astro.props;
     @media (min-width: 640px) {
         .section-card { padding: 1.75rem; }
     }
+
+    @media (max-width: 480px) {
+        .section-card { padding: 1.25rem 1.1rem; margin-bottom: 1.5rem; }
+    }
 </style>
