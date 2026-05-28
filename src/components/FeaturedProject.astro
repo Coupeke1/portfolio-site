@@ -13,7 +13,7 @@ const t = useTranslations(Astro.currentLocale);
         <h2 id="featured-title" class="featured__title">{t.featured.title}</h2>
     </header>
 
-    <TerminalFrame filename="featured.json" lang="json" lineNumbers={true}>
+    <TerminalFrame filename="featured.json" lang="json" lineNumbers={true} class="featured__terminal">
         <Fragment slot="lineNumbers">
             {Array.from({ length: 8 }, (_, i) => <div>{i + 1}</div>)}
         </Fragment>
@@ -128,12 +128,27 @@ const t = useTranslations(Astro.currentLocale);
         overflow: hidden;
         border: 1px solid var(--color-border);
         background: var(--color-bg);
+        aspect-ratio: 16 / 9;
     }
 
     .featured__img {
         width: 100%;
-        height: auto;
+        height: 100%;
         display: block;
         object-fit: cover;
+    }
+
+    @media (max-width: 640px) {
+        .featured__line { word-break: break-word; }
+        .featured__line--indent { padding-left: 0.6rem; }
+        .featured__line--indent2 { padding-left: 1.2rem; }
+        .featured__copy { font-size: 0.85rem; }
+        .featured__title { font-size: 1.25rem; }
+        .featured { margin-bottom: 2.5rem; }
+        .featured__cta { width: 100%; justify-content: center; }
+
+        :global(.featured__terminal .terminal-lines__nums) { display: none; }
+        :global(.featured__terminal .terminal-lines) { grid-template-columns: 1fr; }
+        :global(.featured__terminal .terminal-lines__body) { padding: 1rem 1.1rem; }
     }
 </style>
