@@ -109,8 +109,19 @@ const sections = [
         gap: 1.25rem;
     }
 
+    @media (min-width: 480px) {
+        .about-skills__grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     @media (min-width: 768px) {
         .about-skills__grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+        .about-skills__list { gap: 0.55rem; }
+        .about-skills__list li { font-size: 0.92rem; }
+        .about-skills { margin-top: 2rem; }
+        .about-skills__heading { font-size: 1.25rem; }
     }
 
     .about-skills__panel {
