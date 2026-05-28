@@ -31,11 +31,12 @@ const filename = `${project.id}.md`;
             <div class="project-card__media">
                 <Image
                     src={project.data.heroImage}
-                    width={1200}
-                    height={600}
+                    widths={[400, 800, 1200]}
+                    sizes="(min-width: 1024px) 26rem, (min-width: 640px) 50vw, 100vw"
                     alt={title}
                     class="project-card__img"
                     loading="lazy"
+                    decoding="async"
                 />
             </div>
         )}
@@ -171,5 +172,19 @@ const filename = `${project.id}.md`;
     .project-card__cta {
         color: var(--color-primary);
         font-weight: 500;
+    }
+
+    @media (hover: none) {
+        .project-card__link:hover { transform: none; }
+        .project-card:hover .project-card__img,
+        .project-card__link:hover .project-card__img { transform: none; }
+    }
+
+    @media (max-width: 480px) {
+        .project-card__head { padding: 0.5rem 0.75rem; font-size: 0.7rem; }
+        .project-card__body { padding: 0.85rem 0.95rem 1rem; gap: 0.6rem; }
+        .project-card__title { font-size: 1rem; }
+        .project-card__desc { font-size: 0.85rem; }
+        .project-card__footer { font-size: 0.72rem; }
     }
 </style>
