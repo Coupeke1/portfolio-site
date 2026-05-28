@@ -64,4 +64,11 @@ const isActive = cleanHref === normalized || cleanHref === '/' + (subpath?.[0] |
     .header-link[data-active="false"] .header-link__prefix {
         color: var(--color-text-faint);
     }
+
+    @media (pointer: coarse) {
+        .header-link {
+            min-height: 44px;
+            padding: 0.5rem 0.85rem;
+        }
+    }
 </style>
