@@ -50,4 +50,17 @@ const targetHref = localizedPath(path, target);
     .lang-switch__opt--active { color: var(--color-primary); }
 
     .lang-switch__sep { color: var(--color-text-faint); }
+
+    @media (max-width: 640px) {
+        .lang-switch {
+            height: 2.5rem;
+            padding: 0.4rem 0.55rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .lang-switch {
+            height: 2.75rem;
+        }
+    }
 </style>

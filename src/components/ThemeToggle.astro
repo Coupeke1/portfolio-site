@@ -60,6 +60,20 @@ const t = useTranslations(Astro.currentLocale);
     .theme-toggle[data-theme="light"] .icon-sun  { display: block; }
     .theme-toggle[data-theme="dark"]  .icon-moon { display: block; }
     .theme-toggle[data-theme="system"] .icon-system { display: block; }
+
+    @media (max-width: 640px) {
+        .theme-toggle {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+    }
+
+    @media (max-width: 480px) and (pointer: coarse) {
+        .theme-toggle {
+            width: 2.75rem;
+            height: 2.75rem;
+        }
+    }
 </style>
 
 <script>
