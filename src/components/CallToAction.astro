@@ -36,7 +36,7 @@ const t = useTranslations(Astro.currentLocale);
 
     .cta__title {
         font-family: var(--font-mono);
-        font-size: 1.45rem;
+        font-size: clamp(1.2rem, 5vw, 1.65rem);
         color: var(--color-text);
         margin: 0 0 0.75rem;
         line-height: 1.3;
@@ -61,5 +61,12 @@ const t = useTranslations(Astro.currentLocale);
     @media (min-width: 640px) {
         .cta__title { font-size: 1.65rem; }
         .cta__inner { padding: 1.5rem 1rem; }
+    }
+
+    @media (max-width: 480px) {
+        .cta__actions { flex-direction: column; gap: 0.6rem; }
+        .cta__actions .btn-terminal { width: 100%; justify-content: center; }
+        .cta__inner { padding: 0.75rem 0.25rem; }
+        .cta { margin-top: 1.75rem; }
     }
 </style>
