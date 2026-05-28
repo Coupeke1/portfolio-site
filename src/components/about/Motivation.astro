@@ -28,4 +28,9 @@ const t = useTranslations(Astro.currentLocale);
         max-width: 48rem;
         margin: 0;
     }
+
+    @media (max-width: 480px) {
+        .motivation__heading { font-size: 1.25rem; }
+        .motivation__text { font-size: 1rem; line-height: 1.6; }
+    }
 </style>

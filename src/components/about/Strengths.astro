@@ -75,4 +75,10 @@ const items = t.about.cards.strengths.map((label, idx) => ({
         color: var(--color-primary);
         flex-shrink: 0;
     }
+
+    @media (max-width: 480px) {
+        .strengths { margin-top: 2rem; }
+        .strengths__heading { font-size: 1.25rem; }
+        .strengths__item { padding: 0.85rem 1rem; font-size: 0.88rem; }
+    }
 </style>
