@@ -109,9 +109,11 @@ export const en: Dict = {
                 ],
             },
             strengths: [
+                'C# / .NET full-stack',
                 'Software architecture & DDD',
                 'Microservices & messaging',
                 'Java, Kotlin, TypeScript',
+                'Microsoft Azure cloud',
                 'Spark, Neo4j, SQL',
             ],
         },

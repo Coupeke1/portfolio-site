@@ -1,8 +1,8 @@
 export const SITE_TITLE = 'Mathias Meeus · Full-Stack Developer';
 export const SITE_DESCRIPTION =
-    'Portfolio van Mathias Meeus — full-stack developer in opleiding aan Karel de Grote Hogeschool (Antwerpen). Software-architectuur, DDD, microservices, full-stack TypeScript en Java.';
+    'Portfolio van Mathias Meeus — full-stack developer in opleiding aan Karel de Grote Hogeschool (Antwerpen). C# / .NET, Azure, software-architectuur, DDD, microservices, full-stack TypeScript en Java.';
 export const SITE_DESCRIPTION_EN =
-    'Portfolio of Mathias Meeus — full-stack developer in training at Karel de Grote Hogeschool (Antwerp). Software architecture, DDD, microservices, full-stack TypeScript and Java.';
+    'Portfolio of Mathias Meeus — full-stack developer in training at Karel de Grote Hogeschool (Antwerp). C# / .NET, Azure, software architecture, DDD, microservices, full-stack TypeScript and Java.';
 export const SITE_AUTHOR = 'Mathias Meeus';
 export const SITE_EMAIL = 'mathiasmeeus2@gmail.com';
 export const SITE_LOCATION = 'Antwerpen, België';

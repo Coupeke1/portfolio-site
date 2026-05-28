@@ -4,7 +4,14 @@ import { useTranslations } from '../../i18n';
 
 const t = useTranslations(Astro.currentLocale);
 
-const icons = ['lucide:cpu', 'lucide:boxes', 'lucide:code-2', 'lucide:database'];
+const icons = [
+    'lucide:braces',
+    'lucide:cpu',
+    'lucide:boxes',
+    'lucide:code-2',
+    'lucide:cloud',
+    'lucide:database',
+];
 const items = t.about.cards.strengths.map((label, idx) => ({
     label,
     icon: icons[idx] ?? 'lucide:check',

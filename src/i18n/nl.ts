@@ -107,9 +107,11 @@ export const nl = {
                 ],
             },
             strengths: [
+                'C# / .NET full-stack',
                 'Software-architectuur & DDD',
                 'Microservices & messaging',
                 'Java, Kotlin, TypeScript',
+                'Microsoft Azure cloud',
                 'Spark, Neo4j, SQL',
             ],
         },
