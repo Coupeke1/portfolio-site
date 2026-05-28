@@ -25,7 +25,9 @@ const projects = (await getCollection('projects')).sort(
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 mb-10 lg:mb-14 ">
         {projects.map((project) => (
                 <article class="first:col-span-full first:sm:col-span-2 first:lg:col-span-2 first:mb-4">
-                    <a href={`/projects/${project.id}/`} class="group flex flex-col bg-white border border-gray-200 shadow-sm rounded-xl hover:shadow-md focus:outline-none focus:shadow-md transition-all duration-200 h-full" rel="noopener">
+                    <a href={`/projects/${project.id}/`}
+                       class="group flex flex-col bg-white border border-gray-200 shadow-sm rounded-xl hover:shadow-md focus:outline-none focus:shadow-md transition-all duration-200 h-full"
+                       rel="noopener">
                         {project.data.heroImage && (
                                 <Image
                                         src={project.data.heroImage}

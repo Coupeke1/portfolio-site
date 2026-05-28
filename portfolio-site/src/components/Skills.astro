@@ -1,7 +1,7 @@
 ---
-import { Icon } from "astro-icon/components";
+import {Icon} from "astro-icon/components";
 
-const { skills } = Astro.props;
+const {skills} = Astro.props;
 
 // Combine all skills into a single flat array
 const allSkills = [...skills.backend, ...skills.frontend, ...skills.tools];
@@ -17,7 +17,6 @@ const skillColors = {
     Hilt: "#4285F4",
     DataStore: "#00BCD4",
     "Spring Boot": "#6DB33F",
-    "Node.js": "#339933",
     PostgreSQL: "#336791",
     Docker: "#2496ED",
     HTML5: "#E34F26",
@@ -49,7 +48,6 @@ const skillIcons = {
     Hilt: "simple-icons:dagger",
     DataStore: "simple-icons:google",
     "Spring Boot": "simple-icons:springboot",
-    "Node.js": "simple-icons:nodedotjs",
     PostgreSQL: "simple-icons:postgresql",
     Docker: "simple-icons:docker",
     HTML5: "simple-icons:html5",
@@ -96,8 +94,12 @@ const speed = Math.max(40, allSkills.length * 3); // seconds
 
 <style>
     @keyframes marquee {
-        from { transform: translateX(0); }
-        to   { transform: translateX(-50%); }
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-50%);
+        }
     }
 
     .marquee-track {

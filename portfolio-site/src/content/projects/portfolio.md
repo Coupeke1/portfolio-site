@@ -1,7 +1,7 @@
 ---
-title: "Persoonlijke portfolio"
-shortDescription: "Mijn portfolio website, gebouwd met Astro en TypeScript."
-description: "Professionele portfolio website: SSG met Astro, content in Markdown, Tailwind CSS, OpenGraph en sitemap, gehost op Cloudflare Pages."
+title: "Personal Portfolio"
+shortDescription: "My portfolio website, built with Astro and TypeScript."
+description: "Professional portfolio website: SSG with Astro, Markdown content, Tailwind CSS, OpenGraph and sitemap, hosted on Cloudflare Pages."
 pubDate: "2025-11-17"
 heroImage: "../../assets/portfolio-header.png"
 techStack:
@@ -11,35 +11,37 @@ techStack:
   - GitHub Actions
 role: "Frontend developer / design & content"
 features:
-  - "SSG (astro) + Markdown content"
-  - "Projectpagina's automatisch gegenereerd"
+  - "SSG (Astro) + Markdown content"
+  - "Auto-generated project pages"
   - "SEO, OpenGraph, sitemap"
   - "Dark mode toggle, accessible (WCAG 2.1)"
 repoUrl: "https://github.com/Coupeke1/portfolio-site"
-liveUrl: "https://your-portfolio.example"
+liveUrl: "https://mathiasm.dev/"
 year: 2025
 ---
 
-## Over het project
+## About the project
 
-Deze portfolio is gebouwd met **Astro**, **TypeScript** en **Tailwind CSS**, met de focus op snelheid, eenvoud en professionele presentatie.  
-Alle content (projecten, pagina’s) wordt beheerd via **Markdown + Astro Content Collections**, waardoor nieuwe items automatisch als pagina worden gegenereerd.
+This portfolio is built with **Astro**, **TypeScript** and **Tailwind CSS**, focusing on speed, simplicity and
+professional presentation.  
+All content (projects, pages) is managed via **Markdown + Astro Content Collections**, allowing new items to be
+automatically generated as pages.
 
-## Architectuur & Features
+## Architecture & Features
 
-- **Static Site Generation (SSG)** → snelle en veilige site
-- **Markdown content** voor projecten en pagina’s
-- **Automatische projectpagina’s** via `[slug].astro`
-- **Dark mode** + custom kleurenthema
+- **Static Site Generation (SSG)** → fast and secure site
+- **Markdown content** for projects and pages
+- **Automatic project pages** via `[slug].astro`
+- **Dark mode** + custom color theme
 - **A11y / WCAG 2.1** best practices
 - **SEO + OpenGraph** (title, description, social preview)
-- **Sitemap & robots.txt** automatisch gegenereerd
+- **Sitemap & robots.txt** automatically generated
 
-## CI/CD & Deploy
+## CI/CD & Deployment
 
-- **GitHub Actions** bouwt de site op elke push
-- Hosting op **Cloudflare Pages** (edge CDN, snelle deploys)
+- **GitHub Actions** builds the site on every push
+- Hosting on **Cloudflare Pages** (edge CDN, fast deploys)
 
-## Resultaat
+## Result
 
-Een snelle, lichtgewicht en eenvoudig uitbreidbare portfolio-website waarmee projecten en ervaring professioneel gepresenteerd worden.
+A fast, lightweight and easily extensible portfolio website that professionally showcases projects and experience.

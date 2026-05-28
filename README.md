@@ -11,11 +11,11 @@ This site includes:
 
 ## 🌐 Live Demo
 
-Check it out live: [https://Coupeke1.dev](https://coupeke1.dev)
+Check it out live: [https://MathiasM.dev](https://coupeke1.dev)
 
 ## 🛠 Tech Stack
 
 - **Astro** – Fast modern static site generator
 - **Tailwind CSS** – Utility-first CSS framework
-- **Deployment** – Via [Cloudflare](https://www.cloudflare.com/), Netlify, or GitHub Pages
+- **Deployment** – Via [Cloudflare](https://www.cloudflare.com/)
 
