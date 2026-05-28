@@ -63,7 +63,7 @@ const cards = [
         .what-i-do__grid { grid-template-columns: 1fr 1fr; }
     }
 
-    .what-i-do__card { font-family: var(--font-body); }
+    .what-i-do__card { font-family: var(--font-body); min-width: 0; }
 
     .what-i-do__card-head {
         display: flex;
@@ -111,5 +111,12 @@ const cards = [
         color: var(--color-primary);
         font-family: var(--font-mono);
         font-weight: 700;
+    }
+
+    @media (max-width: 480px) {
+        .what-i-do { margin-top: 2rem; }
+        .what-i-do__heading { font-size: 1.25rem; }
+        .what-i-do__list li { font-size: 0.88rem; padding-left: 1rem; }
+        .what-i-do__card-head h4 { font-size: 0.98rem; }
     }
 </style>
