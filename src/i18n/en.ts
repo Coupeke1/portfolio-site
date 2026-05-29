@@ -44,10 +44,10 @@ export const en: Dict = {
         tools: 'tools',
     },
     cta: {
-        title: 'Open to internships & junior roles',
+        title: "Let's build something",
         description:
-            'I am actively looking for an internship or junior dev role where ' +
-            'I can build real software with a team that takes code quality seriously.',
+            'Got an interesting project, a question, or just want to talk code? ' +
+            'My inbox is open — I usually reply faster than my builds compile.',
         primary: 'email me',
         primaryHref: 'mailto:mathiasmeeus2@gmail.com',
         secondary: 'github →',

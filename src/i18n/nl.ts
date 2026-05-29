@@ -42,10 +42,10 @@ export const nl = {
         tools: 'tools',
     },
     cta: {
-        title: 'Open voor stage & junior posities',
+        title: 'Laten we iets bouwen',
         description:
-            'Ik zoek actief een stage- of junior dev-rol waar ik kan bouwen ' +
-            'aan échte software met een team dat hoge code-kwaliteit serieus neemt.',
+            'Heb je een interessant project, een vraag, of gewoon zin om over code ' +
+            'te praten? Mijn inbox staat open — meestal antwoord ik sneller dan mijn builds compileren.',
         primary: 'mail mij',
         primaryHref: 'mailto:mathiasmeeus2@gmail.com',
         secondary: 'github →',
